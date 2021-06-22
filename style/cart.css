@@ -102,8 +102,9 @@ input[type="submit"] {
 	display: inline-block;
 	padding: 1.1em 1em 1em 1em;
 	text-transform: uppercase;
-	background-color: #ff6600;
-	color: #fff;
+	border: 1px solid #ff6600;
+	background-color: transparent;
+	color: #ff6600;
 	border-radius: .5em;
 	text-decoration: none !important;
 	position: relative;
@@ -111,7 +112,6 @@ input[type="submit"] {
     transform: translate3d(0,0,0);
 	transition: background-color 0.2s ease-in-out, color 0.2s ease-in-out, border-color 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
 	/*height: 60px;*/
-	border: 0;
 	font-size: 1em;
 	padding-left: 60px;
 	padding-right: 60px;
@@ -640,12 +640,12 @@ form .btn {
 	margin-top: 30px;
 	margin-right: 8px;
 	margin-left: 8px;
-	background-color: #FF6807;
+	border: 1px solid #FF6807;
 	border-radius: 8px;
 	padding: 20px 0;
 	width: 100%;
-	border: none;
 	outline: none;
+	background-color: transparent;
 }
 .categories--active {
 	display: flex !important;

@@ -567,8 +567,7 @@ $('.btn-cart').click(function(){
 	$('<div class="cart-col"><div class="col-price cart-sum"></div></div>').appendTo(cart);
 	$('<div class="cart-inp"><textarea type="text" name="order_cart" class="hide"></textarea></div>').appendTo(cart);
 	$('<div class="cart-inp"><label>Имя:</label><input type="text" name="name" placeholder="Ваше имя" class="w-100"></div>').appendTo(cart);
-	$('<div class="cart-inp"><label>Телефон:</label><input type="number" name="phone" placeholder="Номер телефона" class="w-100" required></div>').appendTo(cart);
-
+	$('<div class="cart-inp"><label>Телефон:</label><input type="text" name="phone" placeholder="Номер телефона" pattern="[789][0-9]{10}" class="w-100" required></div>').appendTo(cart);
 	// Доставка
 	var pointsBox = $('<div class="cart-inp"></div>');
 		$('<label>Получение заказа:</label>').appendTo(pointsBox);
