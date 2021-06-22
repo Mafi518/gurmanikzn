@@ -26,7 +26,6 @@ body {
 /* ================================================== */
 .header-wrapper .container .row {
 	width: 100%;
-	display: table;
 }
 .header-wrapper .container .row > div {
     vertical-align: middle;
@@ -637,7 +636,20 @@ form .btn {
 	width: 760px;
 	height: 430px;
 }
-
+.categories__button {
+	margin-top: 30px;
+	margin-right: 8px;
+	margin-left: 8px;
+	background-color: #FF6807;
+	border-radius: 8px;
+	padding: 20px 0;
+	width: 100%;
+	border: none;
+	outline: none;
+}
+.categories--active {
+	display: flex !important;
+}
 /* ============================================================= */
 /* === CHAPTERS */
 /* ============================================================= */
@@ -706,6 +718,15 @@ form .btn {
 	.flex-row {
 		flex-direction: column;
 		align-items: flex-start;
+	}
+	.cafe-body .left-panel .menu .elem li {
+		max-width: 200px !important;
+		min-height: 150px !important;
+	}
+}
+@media screen and (max-width:460px) {
+	.cafe-body .left-panel .menu .elem li {
+		max-width: 100% !important;
 	}
 }
 @media screen and (max-width:375px) {

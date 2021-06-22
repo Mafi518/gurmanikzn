@@ -839,3 +839,8 @@ $('.btn-menu').click(function(){
 
 
 })(jQuery);
+
+document.querySelector('.categories__button').addEventListener('click', () => {
+	document.querySelector('.caterogies').classList.toggle('categories--active')
+	console.log('asdsad')
+})

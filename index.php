@@ -3108,23 +3108,33 @@ if($query_categories = mysqli_query($link,"SELECT * FROM products WHERE price_sh
     height: 100px
   }
 
-  .cafe-body .left-panel {
-    margin-right: 10px
-  }
-
   .cafe-body .left-panel .menu .elem {
     padding-left: 0;
     list-style: none;
     font-size: 16px;
-    font-weight: 400
+    font-weight: 400;
+    display: none;
+    justify-content: center;
+    flex-wrap: wrap;
   }
 
-  .cafe-body .left-panel .menu .elem li a {
-    display: block;
-    margin-left: -10px;
-    padding: 11px 0 11px 10px;
+  .cafe-body .left-panel .menu .elem li {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    max-width: 250px;
+    width: 100%;
+    border-radius: 8px;
+    min-height: 200px;   
+    margin: 8px;
+    background-color: #fff;
     color: #000;
     text-decoration: none
+  }
+  ..cafe-body .left-panel .menu .elem li a {
+    width: 100%;
+    height: 100%;
+    display: none;
   }
 
   .cafe-body .left-panel .menu .elem li.active>a {
@@ -3621,9 +3631,6 @@ if($query_categories = mysqli_query($link,"SELECT * FROM products WHERE price_sh
       font-size: 50px
     }
 
-    body .cafe-body .left-panel {
-      display: none
-    }
 
     body .cafe-body .items-section .item-card.product-card .btn-buy {
       opacity: 1;
@@ -4474,6 +4481,13 @@ if($query_categories = mysqli_query($link,"SELECT * FROM products WHERE price_sh
   body .cafe-body .left-panel .menu .sub-elem li a {
     color: #151515;
   }
+  body .cafe-body .left-panel .menu .elem li a {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
 
   body .cafe-body .left-panel .menu .contacts {
     color: #151515;
@@ -4972,42 +4986,6 @@ if($query_categories = mysqli_query($link,"SELECT * FROM products WHERE price_sh
             </div>
           </div>
 
-          <div class="col-sm-9 col-xs-9 search-wrapper">
-            <div class="search">
-              <form action="/" method="get" class="search form">
-                <button type="submit" class="btn btn-search">
-                  <!--?xml version="1.0" encoding="UTF-8" standalone="no"?-->
-                  <svg width="100%" viewBox="0 0 81 81" version="1.1" xmlns="http://www.w3.org/2000/svg"
-                    xmlns:xlink="http://www.w3.org/1999/xlink">
-                    <g id="Welcome" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
-                      <g transform="translate(-1313.000000, -13.000000)" fill="rgba(0, 0, 0, 0.3)">
-                        <g transform="translate(-1.000000, -2.000000)">
-                          <g transform="translate(1306.000000, 15.000000)">
-                            <g id="Group">
-                              <path
-                                d="M80.5,79.3 C80.5,79.3 67.9,66.7 61.2,60 C55.7,64.1 48.9,66.6 41.4,66.6 C23.1,66.6 8.3,51.8 8.3,33.5 C8.3,15.2 23.1,0.4 41.4,0.4 C59.7,0.4 74.5,15.2 74.5,33.5 C74.5,40.9 72,47.7 67.9,53.2 C74.7,60 87.2,72.5 87.2,72.5 C89.1,74.4 89.1,77.4 87.2,79.3 C85.3,81.2 82.3,81.2 80.5,79.3 Z M41.4,9.8 C28.4,9.8 17.8,20.4 17.8,33.4 C17.8,46.5 28.4,57 41.4,57 C54.4,57 65,46.5 65,33.4 C65,20.4 54.5,9.8 41.4,9.8 L41.4,9.8 Z"
-                                id="Shape"></path>
-                            </g>
-                          </g>
-                        </g>
-                      </g>
-                    </g>
-                  </svg>
-                </button>
-                <input type="text" class="input-search" name="q" placeholder="Поиск" value="<?php echo $_GET['q'] ?>">
-              </form>
-              <!--  <div class="mobile-menu" style="max-height: 650px;">
-                            <ul>
-                            	<?php
-	                            	echo '<li><span class="menu-item"><a href="/">Все категории</a></span></li>';
-		                        	foreach($categories as $category_id => $products_rows){
-							    		echo '<li><span class="menu-item"><a href="/?category='.$category_id.'">'.$products_rows[0]['category_name'].'</a></span></li>';
-									}
-	                        	?>
-							</ul>
-                        </div> -->
-            </div>
-          </div>
           <!-- <div class="order">
 	                    <a href="/#" class="show-order">
 	                        <div class="cart-icon">
@@ -5211,20 +5189,16 @@ echo '</div>';
 
 ?>
 
-  <div class="advantage container">
-    <h2 class="advantage__title">Бесплатная доставка от 800 рублей*</h2>
-    <h2 class="advantage__title">Доставка за час</h2>
-    <h2 class="advantage__title">Мы готовим блюда исключительно из свежих продуктов</h2>
-  </div>
 
   <div class="cafe-body">
 
     <div class="container">
       <div class="row">
-        <div class="col-sm-3">
+        <div class="col-sm-12">
           <div class="left-panel">
+            <button class="categories__button">Категории</button>
             <div class="menu" itemscope="" itemtype="http://schema.org/SiteNavigationElement" role="navigation">
-              <ul class="elem">
+              <ul class="elem caterogies">
                 <?php
 	                        	echo '<li class="cat-link-wrapper has-sub-cat"><a href="/" itemprop="url">Все категории</a></li>';
 	                        	foreach($categories as $category_id => $products_rows){
@@ -5247,27 +5221,13 @@ echo '</div>';
 							<li class="cat-link-wrapper has-sub-cat"><a href="/lapsa-wok" itemprop="url">Десерты</a></li> -->
               </ul>
             </div>
-            <div class="contacts" itemscope="" itemtype="http://schema.org/PostalAddress">
-              <p class="title">Контакты:</p>
-              <span itemprop="addressLocality">
-                <div><br></div>
-              </span>
-              <b>
-                <span itemprop="telephone">8 (937) 771 1838</span><br>
-                <a href="mailto:gurmanikzn@mail.ru" itemprop="email">gurmanikzn@mail.ru</a>
-                <span itemprop="contactOption"> </span>
-                <br><br>
-                <iframe src="https://yandex.ru/sprav/widget/rating-badge/163595445939" width="150" height="50"
-                  frameborder="0"></iframe>
-              </b>
-            </div>
 
             <!--  <div class="map leaflet-container leaflet-touch leaflet-fade-anim leaflet-grab leaflet-touch-drag leaflet-touch-zoom" id="map" tabindex="0" style="position: relative;"><div class="leaflet-pane leaflet-map-pane" style="transform: translate3d(0px, 0px, 0px);"><div class="leaflet-pane leaflet-tile-pane"><div class="leaflet-layer " style="z-index: 1; opacity: 1;"><div class="leaflet-tile-container leaflet-zoom-animated" style="z-index: 18; transform: translate3d(0px, 0px, 0px) scale(1);"><img alt="" role="presentation" src="./index_files/2559.png" class="leaflet-tile leaflet-tile-loaded" style="width: 256px; height: 256px; transform: translate3d(-79px, -10px, 0px); opacity: 1;"><img alt="" role="presentation" src="./index_files/2559(1).png" class="leaflet-tile leaflet-tile-loaded" style="width: 256px; height: 256px; transform: translate3d(177px, -10px, 0px); opacity: 1;"></div></div></div><div class="leaflet-pane leaflet-shadow-pane"><img src="./index_files/marker-shadow.png" class="leaflet-marker-shadow leaflet-zoom-animated" alt="" style="margin-left: -12px; margin-top: -41px; width: 41px; height: 41px; transform: translate3d(126px, 120px, 0px);"></div><div class="leaflet-pane leaflet-overlay-pane"></div><div class="leaflet-pane leaflet-marker-pane"><img src="./index_files/marker-icon.png" class="leaflet-marker-icon leaflet-zoom-animated leaflet-interactive" alt="" tabindex="0" style="margin-left: -12px; margin-top: -41px; width: 25px; height: 41px; transform: translate3d(126px, 120px, 0px); z-index: 120;"></div><div class="leaflet-pane leaflet-tooltip-pane"></div><div class="leaflet-pane leaflet-popup-pane"></div><div class="leaflet-proxy leaflet-zoom-animated" style="transform: translate3d(1.33473e+06px, 655234px, 0px) scale(4096);"></div></div><div class="leaflet-control-container"><div class="leaflet-top leaflet-left"><div class="leaflet-control-zoom leaflet-bar leaflet-control"><a class="leaflet-control-zoom-in" href="/#" title="Zoom in" role="button" aria-label="Zoom in">+</a><a class="leaflet-control-zoom-out" href="/#" title="Zoom out" role="button" aria-label="Zoom out">−</a></div></div><div class="leaflet-top leaflet-right"></div><div class="leaflet-bottom leaflet-left"></div><div class="leaflet-bottom leaflet-right"><div class="leaflet-control-attribution leaflet-control">
                             </div></div></div></div> -->
 
           </div>
         </div>
-        <div class="col-sm-9">
+        <div class="col-sm-12">
 
 
           <!-- <div class="items-section">
