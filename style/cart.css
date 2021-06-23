@@ -155,6 +155,9 @@ select {
 	margin-top: .5em;
 	text-align: left;
 }
+.cart__select {
+	padding: .2em 1.2em;
+}
 textarea,
 select {
 	display: block;
@@ -650,6 +653,15 @@ form .btn {
 .categories--active {
 	display: flex !important;
 }
+.cart--fix {
+	display: flex;
+	justify-content: space-around;
+	align-items: flex-end;
+}
+.col--fix {
+	max-width: 178px;
+	width: 100%;
+}
 /* ============================================================= */
 /* === CHAPTERS */
 /* ============================================================= */
@@ -722,6 +734,9 @@ form .btn {
 	.cafe-body .left-panel .menu .elem li {
 		max-width: 200px !important;
 		min-height: 150px !important;
+	}
+	select.cart__select {
+		padding: 4px !important;
 	}
 }
 @media screen and (max-width:460px) {

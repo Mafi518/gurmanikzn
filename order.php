@@ -1,15 +1,17 @@
 <?php
+header('Location: test.php');
+
 
 include 'db.php';
 
 include 'head.php';
 
-$dev = false;
-// $dev = true;
+// $dev = false;
+$dev = true;
 
 
-if($_POST['submit_order']){
 
+if($_POST['submit_order'] ){
 	$i = -1; $j = -1;
 	$search_ins = '';
 	$addons = [];
@@ -17,6 +19,10 @@ if($_POST['submit_order']){
 	if($_POST['order_adress_time'] AND $param['affiliate']==1){ //  AND $_POST['et']==''
 		if($_POST['descr']!='') $_POST['descr'] .= ' / ';
 		$_POST['descr'] .= 'Самовывоз в '.$_POST['order_adress_time'];
+	}
+	if ($_POST['people_amount']){
+		if($_POST['descr']!='') $_POST['descr'] .= ' / ';
+		$_POST['descr'] .= 'Количество персон '.$_POST['people_amount'];
 	}
 
 	if($_POST['pay']){
@@ -51,7 +57,8 @@ if($_POST['submit_order']){
 	if($_POST['order_cart']) $_POST['order_cart'] = json_decode($_POST['order_cart'],true);
 	$_POST['order_sum'] = 0;
 	foreach($_POST['order_cart'] as $ct){
-		$_POST['order_sum'] += $ct['p']*$ct['c']; // Просто посчитаем сумму заказа по данным корзины
+		$_POST['order_sum'] += $ct['p']*$ct['c'];
+		$summ = $_POST['order_sum']; // Просто посчитаем сумму заказа по данным корзины
 		if(($ct['f'] OR $ct['i']) AND $ct['c']>0){
 			$product[++$i] = $ct['v'] ? $ct['v'] : $ct['f'];
 			$product_kol[++$j] = $ct['c'];
@@ -153,28 +160,20 @@ if($_POST['submit_order']){
 	// 	echo '<pre>';
 	// 	print_r($product_mod);
 	// 	echo '</pre>';
-	// }
+	if($dev){?>
+		<div class="success-box quote">
+			<h2>Спасибо за заказ!</h2>
+			<h3>Оператор свяжется с вами в ближайшее время</h3>
+			Вы указали номер телефона: <b><?=$param['phone']?></b>
+			<br><br>Обращаем ваше внимание что заказы принимаются ежедневно с 10:00 до 22:00
+			<pre>
+			</pre>
+		</div>
+	<?}?>
+	<!-- <? if($dev)?> <h2>Данные</h2> -->
 
-	if(!$dev){
-		echo '<div class="success-box quote">';
-			echo '<h2>Спасибо за заказ!</h2>';
-			echo '<h3>Оператор свяжется с вами в ближайшее время</h3>';
-			echo 'Вы указали номер телефона: <b>'.$param['phone'].'</b>';
-			echo '<br><br>Обращаем ваше внимание что заказы принимаются ежедневно с 10:00 до 22:00';
-			// echo '<pre>';
-			// print_r($param);
-			// echo '</pre>';
-		echo '</div>';
-	}
-
-	if($dev)
-		echo '<h2>Данные</h2>';
-	// echo '<pre>';
-	// print_r($param);
-	// echo '</pre>';
-
-	// For api poster
-	$incoming_order = [
+	<!-- For api poster -->
+	<?$incoming_order = [
 	    'spot_id'   => 1,
 	    'phone'     => getPhone($param['phone']),
 	    'service_mode' => $param['affiliate'] ? $param['affiliate'] : 3, // Создает заказ указанного типа: 1 — в заведении, 2 — навынос, 3 — доставка
@@ -231,11 +230,11 @@ if($_POST['submit_order']){
 			if(!$check)
 				$incoming_order['products'][] = $product;
 
-			if($dev){
-				echo '<pre>';
-				print_r($row);
-				echo '</pre>';
-			}
+			// if($dev){
+			// 	echo '<pre>';
+			// 	print_r($row);
+			// 	echo '</pre>';
+			// }
 		}
 	}
 
@@ -256,12 +255,12 @@ if($_POST['submit_order']){
 	// }
 
 				
-	if($dev){
-		echo '<h2>Заказ</h2>';
-		echo '<pre>';
-		print_r($incoming_order);
-		echo '</pre>';
-	}
+	// if($dev){
+	// 	echo '<h2>Заказ</h2>';
+	// 	echo '<pre>';
+	// 	// print_r($incoming_order);
+	// 	echo '</pre>';
+	// }
 
 
 	// Отправка по интеграции poster
@@ -270,18 +269,21 @@ if($_POST['submit_order']){
 	$data = sendRequest($url, 'post', $incoming_order);
 	$data = json_decode($data,true);
 
-	if($dev){
-		echo '<pre>';
-		print_r($data); 
-		echo '</pre>';
-	}
+	// print_r($data);
+
+	// if($dev){
+	// 	echo '<pre>';
+	// 	print_r($data); 
+	// 	echo '</pre>';
+	// }
 
 	// // {"response":{"incoming_order_id":257,"type":1,"spot_id":1,"status":0,"client_id":302,"client_address_id":0,"table_id":null,"comment":"\u041e\u0442\u043c\u0435\u043d\u0438\u0442\u044c \u0437\u0430\u043a\u0430\u0437, \u0442\u0435\u0441\u0442 \u043d\u043e\u0432\u043e\u0433\u043e \u0441\u0430\u0439\u0442\u0430","created_at":"2021-04-22 14:04:20","updated_at":"2021-04-22 14:04:20","transaction_id":null,"service_mode":1,"delivery_price":null,"fiscal_spreading":0,"fiscal_method":"","promotion":null,"delivery_time":"0000-00-00 00:00:00","payment_method_id":null,"first_name":null,"last_name":null,"phone":"79994677108","email":null,"sex":null,"birthday":null,"address":null,"products":[{"io_product_id":905,"product_id":203,"modificator_id":0,"incoming_order_id":257,"count":"1.0000000","price":24900,"created_at":"2021-04-22 14:04:20"},{"io_product_id":906,"product_id":268,"modificator_id":0,"incoming_order_id":257,"count":"1.0000000","price":2900,"created_at":"2021-04-22 14:04:20"},{"io_product_id":907,"product_id":271,"modificator_id":0,"incoming_order_id":257,"count":"1.0000000","price":2900,"created_at":"2021-04-22 14:04:20"}]}}
 
 
 	// Интеграция с Allbiom.ru
-		$_POST['integration'] = json_encode($incoming_order);
-		$_POST['data'] = json_encode($data);
+		// $_POST['integration'] = json_decode($incoming_order);
+		// $_POST['data'] = $data;
+		// print_r($data);
 		$lead_data = '';
 		foreach($_POST as $key => $value){
 			if($lead_data!='') $lead_data .= '&';
@@ -300,6 +302,7 @@ if($_POST['submit_order']){
 		);
 		$lead_context = stream_context_create($lead_aHTTP);
 		$lead_text = file_get_contents($lead_sURL, false, $lead_context);
+		
 		// $result = json_decode($lead_text);
 		// echo '<pre>';
 		// print_r($result);
@@ -385,7 +388,7 @@ if($_POST['submit_order']){
 	//         )
 
 	// )
-
+	// header("Location: index.php");
 }
 
 ?>

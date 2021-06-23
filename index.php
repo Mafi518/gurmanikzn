@@ -3130,11 +3130,59 @@ if($query_categories = mysqli_query($link,"SELECT * FROM products WHERE price_sh
     background-color: #fff;
     color: #000;
     text-decoration: none
+    background-size: cover;
+    background-image: url(index_files/1953295_1615559450.9081_original.jpg);
+
+  }
+  .cafe-body .left-panel .menu .elem li:nth-child(1) {
+
+  }
+  .cafe-body .left-panel .menu .elem li:nth-child(2) {
+
+  }
+  .cafe-body .left-panel .menu .elem li:nth-child(3) {
+
+  }
+  .cafe-body .left-panel .menu .elem li:nth-child(4) {
+
+  }
+  .cafe-body .left-panel .menu .elem li:nth-child(5) {
+
+  }
+  .cafe-body .left-panel .menu .elem li:nth-child(6) {
+
+  }
+  .cafe-body .left-panel .menu .elem li:nth-child(7) {
+
+  }
+  .cafe-body .left-panel .menu .elem li:nth-child(8) {
+
+  }
+  .cafe-body .left-panel .menu .elem li:nth-child(9) {
+
+  }
+  .cafe-body .left-panel .menu .elem li:nth-child(10) {
+
+  }
+  .cafe-body .left-panel .menu .elem li:nth-child(11) {
+
+  }
+  .cafe-body .left-panel .menu .elem li:nth-child(12) {
+
+  }
+  .cafe-body .left-panel .menu .elem li:nth-child(13) {
+
+  }
+  .cafe-body .left-panel .menu .elem li:nth-child(14) {
+
+  }
+  .cafe-body .left-panel .menu .elem li:nth-child(15) {
+
   }
   ..cafe-body .left-panel .menu .elem li a {
     width: 100%;
     height: 100%;
-    display: none;
+    background-color: #fff;
   }
 
   .cafe-body .left-panel .menu .elem li.active>a {
@@ -4479,7 +4527,7 @@ if($query_categories = mysqli_query($link,"SELECT * FROM products WHERE price_sh
 
   body .cafe-body .left-panel .menu .elem li a,
   body .cafe-body .left-panel .menu .sub-elem li a {
-    color: #151515;
+    color: #FF6807;
   }
   body .cafe-body .left-panel .menu .elem li a {
     width: 100%;
@@ -4487,6 +4535,21 @@ if($query_categories = mysqli_query($link,"SELECT * FROM products WHERE price_sh
     display: flex;
     align-items: center;
     justify-content: center;
+    border-radius: 8px;
+    position: relative;
+    z-index: 1;
+  }
+  body .cafe-body .left-panel .menu .elem li a:after {
+    content: '';
+    width: 70%;
+    height: 20%;
+    background-color: #fff;
+    position: absolute;
+    border-radius: 8px;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: -1;
   }
 
   body .cafe-body .left-panel .menu .contacts {
