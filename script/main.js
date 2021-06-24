@@ -407,6 +407,7 @@
 		box.find('[cart-data]').each(function(){
 			data[$(this).attr('cart-data')] = JSON.parse($(this).val());
 		});
+
 		// console.log(data);
 		var price = 0;
 		if(data.variants && data.variants.length)
@@ -647,8 +648,6 @@
 		$('.popup-box [name="order_cart"]').val(JSON.stringify($.cart));
 	}; funcUpdateCart();
 
-	function updateCart() {}
-
 	// TODO: В куки много не влазиет, может перейти на $_SESSION?
 	
 	
@@ -831,308 +830,22 @@
 	
 		$('.promocode_handler').change(checkCart)
 		$('.count').change(checkCart)
-		$('.cart__select').change(checkCart)
 
 		function checkCart() {
 
+			let countPrice = $('.count_summ').val()
 
-			function checkSum() {
-				if (document.querySelectorAll('.price-change').length === 1) {
-					let countAttr0 = +document.querySelectorAll('.price-change').item(0).getAttribute('price-one')
-
-					let array = [countAttr0]
-					const reducer = (accumulator, currentValue) => accumulator + currentValue;
-					
-					let countPrice = array.reduce(reducer)
-					$('.count-price').html(`Итого: ${countPrice}р.`)
-		
-					promocodes.find((el) => {
+			promocodes.find((el) => {
 	
-						let finalSum = Math.round(countPrice - (countPrice * el.discount / 100))
-		
-						if (el.name === $('.promocode_handler').val()) {
-							$('.count-price').html(`Итого: ${finalSum}р.`)
-						}
-					});
-				} else if(document.querySelectorAll('.price-change').length === 2) {
-					let countAttr0 = +document.querySelectorAll('.price-change').item(0).getAttribute('price-one')
-					let countAttr1 = +document.querySelectorAll('.price-change').item(1).getAttribute('price-one')
+				let finalSum = Math.round(countPrice - (countPrice * el.discount / 100))
 
-					let array = [countAttr0, countAttr1]
-
-					console.log(countAttr1);
-					const reducer = (accumulator, currentValue) => accumulator + currentValue;
-					
-					let countPrice = array.reduce(reducer)
-
-					console.log(countPrice);
-					$('.count-price').html(`Итого: ${countPrice}р.`)
-		
-					promocodes.find((el) => {
-	
-						let finalSum = Math.round(countPrice - (countPrice * el.discount / 100))
-		
-						if (el.name === $('.promocode_handler').val()) {
-							$('.count-price').html(`Итого: ${finalSum}р.`)
-						}
-					});
-				} else if(document.querySelectorAll('.price-change').length === 3) {
-					let countAttr0 = +document.querySelectorAll('.price-change').item(0).getAttribute('price-one')
-					let countAttr1 = +document.querySelectorAll('.price-change').item(1).getAttribute('price-one')
-					let countAttr2 = +document.querySelectorAll('.price-change').item(2).getAttribute('price-one')
-
-
-					let array = [countAttr0, countAttr1, countAttr2]
-					const reducer = (accumulator, currentValue) => accumulator + currentValue;
-					
-					let countPrice = array.reduce(reducer)
-					$('.count-price').html(`Итого: ${countPrice}р.`)
-		
-					promocodes.find((el) => {
-	
-						let finalSum = Math.round(countPrice - (countPrice * el.discount / 100))
-		
-						if (el.name === $('.promocode_handler').val()) {
-							$('.count-price').html(`Итого: ${finalSum}р.`)
-						}
-					});
-				} else if(document.querySelectorAll('.price-change').length === 4) {
-					let countAttr0 = +document.querySelectorAll('.price-change').item(0).getAttribute('price-one')
-					let countAttr1 = +document.querySelectorAll('.price-change').item(1).getAttribute('price-one')
-					let countAttr2 = +document.querySelectorAll('.price-change').item(2).getAttribute('price-one')
-					let countAttr3 = +document.querySelectorAll('.price-change').item(3).getAttribute('price-one')
-
-
-					let array = [countAttr0, countAttr1, countAttr2, countAttr3]
-					const reducer = (accumulator, currentValue) => accumulator + currentValue;
-					
-					let countPrice = array.reduce(reducer)
-					$('.count-price').html(`Итого: ${countPrice}р.`)
-		
-					promocodes.find((el) => {
-	
-						let finalSum = Math.round(countPrice - (countPrice * el.discount / 100))
-		
-						if (el.name === $('.promocode_handler').val()) {
-							$('.count-price').html(`Итого: ${finalSum}р.`)
-						}
-					});
-				} else if(document.querySelectorAll('.price-change').length === 5) {
-					let countAttr0 = +document.querySelectorAll('.price-change').item(0).getAttribute('price-one')
-					let countAttr1 = +document.querySelectorAll('.price-change').item(1).getAttribute('price-one')
-					let countAttr2 = +document.querySelectorAll('.price-change').item(2).getAttribute('price-one')
-					let countAttr3 = +document.querySelectorAll('.price-change').item(3).getAttribute('price-one')
-					let countAttr4 = +document.querySelectorAll('.price-change').item(4).getAttribute('price-one')
-
-					let array = [countAttr0, countAttr1, countAttr2, countAttr3, countAttr4]
-					const reducer = (accumulator, currentValue) => accumulator + currentValue;
-					
-					let countPrice = array.reduce(reducer)
-					$('.count-price').html(`Итого: ${countPrice}р.`)
-		
-					promocodes.find((el) => {
-	
-						let finalSum = Math.round(countPrice - (countPrice * el.discount / 100))
-		
-						if (el.name === $('.promocode_handler').val()) {
-							$('.count-price').html(`Итого: ${finalSum}р.`)
-						}
-					});
-				} else if(document.querySelectorAll('.price-change').length === 6) {
-					let countAttr0 = +document.querySelectorAll('.price-change').item(0).getAttribute('price-one')
-					let countAttr1 = +document.querySelectorAll('.price-change').item(1).getAttribute('price-one')
-					let countAttr2 = +document.querySelectorAll('.price-change').item(2).getAttribute('price-one')
-					let countAttr3 = +document.querySelectorAll('.price-change').item(3).getAttribute('price-one')
-					let countAttr4 = +document.querySelectorAll('.price-change').item(4).getAttribute('price-one')
-					let countAttr5 = +document.querySelectorAll('.price-change').item(5).getAttribute('price-one')
-
-					let array = [countAttr0, countAttr1, countAttr2, countAttr3, countAttr4, countAttr5]
-					const reducer = (accumulator, currentValue) => accumulator + currentValue;
-					
-					let countPrice = array.reduce(reducer)
-					$('.count-price').html(`Итого: ${countPrice}р.`)
-		
-					promocodes.find((el) => {
-	
-						let finalSum = Math.round(countPrice - (countPrice * el.discount / 100))
-		
-						if (el.name === $('.promocode_handler').val()) {
-							$('.count-price').html(`Итого: ${finalSum}р.`)
-						}
-					});
-				} else if(document.querySelectorAll('.price-change').length === 7) {
-					let countAttr0 = +document.querySelectorAll('.price-change').item(0).getAttribute('price-one')
-					let countAttr1 = +document.querySelectorAll('.price-change').item(1).getAttribute('price-one')
-					let countAttr2 = +document.querySelectorAll('.price-change').item(2).getAttribute('price-one')
-					let countAttr3 = +document.querySelectorAll('.price-change').item(3).getAttribute('price-one')
-					let countAttr4 = +document.querySelectorAll('.price-change').item(4).getAttribute('price-one')
-					let countAttr5 = +document.querySelectorAll('.price-change').item(5).getAttribute('price-one')
-					let countAttr6 = +document.querySelectorAll('.price-change').item(6).getAttribute('price-one')
-
-					let array = [countAttr0, countAttr1, countAttr2, countAttr3, countAttr4, countAttr5, countAttr6]
-					const reducer = (accumulator, currentValue) => accumulator + currentValue;
-					
-					let countPrice = array.reduce(reducer)
-					$('.count-price').html(`Итого: ${countPrice}р.`)
-		
-					promocodes.find((el) => {
-	
-						let finalSum = Math.round(countPrice - (countPrice * el.discount / 100))
-		
-						if (el.name === $('.promocode_handler').val()) {
-							$('.count-price').html(`Итого: ${finalSum}р.`)
-						}
-					});
-				} else if(document.querySelectorAll('.price-change').length === 8) {
-					let countAttr0 = +document.querySelectorAll('.price-change').item(0).getAttribute('price-one')
-					let countAttr1 = +document.querySelectorAll('.price-change').item(1).getAttribute('price-one')
-					let countAttr2 = +document.querySelectorAll('.price-change').item(2).getAttribute('price-one')
-					let countAttr3 = +document.querySelectorAll('.price-change').item(3).getAttribute('price-one')
-					let countAttr4 = +document.querySelectorAll('.price-change').item(4).getAttribute('price-one')
-					let countAttr5 = +document.querySelectorAll('.price-change').item(5).getAttribute('price-one')
-					let countAttr6 = +document.querySelectorAll('.price-change').item(6).getAttribute('price-one')
-					let countAttr7 = +document.querySelectorAll('.price-change').item(7).getAttribute('price-one')
-
-					let array = [countAttr0, countAttr1, countAttr2, countAttr3, countAttr4, countAttr5, countAttr6, countAttr7]
-					const reducer = (accumulator, currentValue) => accumulator + currentValue;
-					
-					let countPrice = array.reduce(reducer)
-					$('.count-price').html(`Итого: ${countPrice}р.`)
-		
-					promocodes.find((el) => {
-	
-						let finalSum = Math.round(countPrice - (countPrice * el.discount / 100))
-		
-						if (el.name === $('.promocode_handler').val()) {
-							$('.count-price').html(`Итого: ${finalSum}р.`)
-						}
-					});
-				} else if(document.querySelectorAll('.price-change').length === 9) {
-					let countAttr0 = +document.querySelectorAll('.price-change').item(0).getAttribute('price-one')
-					let countAttr1 = +document.querySelectorAll('.price-change').item(1).getAttribute('price-one')
-					let countAttr2 = +document.querySelectorAll('.price-change').item(2).getAttribute('price-one')
-					let countAttr3 = +document.querySelectorAll('.price-change').item(3).getAttribute('price-one')
-					let countAttr4 = +document.querySelectorAll('.price-change').item(4).getAttribute('price-one')
-					let countAttr5 = +document.querySelectorAll('.price-change').item(5).getAttribute('price-one')
-					let countAttr6 = +document.querySelectorAll('.price-change').item(6).getAttribute('price-one')
-					let countAttr7 = +document.querySelectorAll('.price-change').item(7).getAttribute('price-one')
-					let countAttr8 = +document.querySelectorAll('.price-change').item(8).getAttribute('price-one')
-
-					let array = [countAttr0, countAttr1, countAttr2, countAttr3, countAttr4, countAttr5, countAttr6, countAttr7, countAttr8]
-					const reducer = (accumulator, currentValue) => accumulator + currentValue;
-					
-					let countPrice = array.reduce(reducer)
-					$('.count-price').html(`Итого: ${countPrice}р.`)
-		
-					promocodes.find((el) => {
-	
-						let finalSum = Math.round(countPrice - (countPrice * el.discount / 100))
-		
-						if (el.name === $('.promocode_handler').val()) {
-							$('.count-price').html(`Итого: ${finalSum}р.`)
-						}
-					});
-				} else if(document.querySelectorAll('.price-change').length === 10) {
-					let countAttr0 = +document.querySelectorAll('.price-change').item(0).getAttribute('price-one')
-					let countAttr1 = +document.querySelectorAll('.price-change').item(1).getAttribute('price-one')
-					let countAttr2 = +document.querySelectorAll('.price-change').item(2).getAttribute('price-one')
-					let countAttr3 = +document.querySelectorAll('.price-change').item(3).getAttribute('price-one')
-					let countAttr4 = +document.querySelectorAll('.price-change').item(4).getAttribute('price-one')
-					let countAttr5 = +document.querySelectorAll('.price-change').item(5).getAttribute('price-one')
-					let countAttr6 = +document.querySelectorAll('.price-change').item(6).getAttribute('price-one')
-					let countAttr7 = +document.querySelectorAll('.price-change').item(7).getAttribute('price-one')
-					let countAttr8 = +document.querySelectorAll('.price-change').item(8).getAttribute('price-one')
-					let countAttr9 = +document.querySelectorAll('.price-change').item(9).getAttribute('price-one')
-
-					
-					let array = [countAttr0, countAttr1, countAttr2, countAttr3, countAttr4, countAttr5, countAttr6, countAttr7, countAttr8, countAttr9]
-					const reducer = (accumulator, currentValue) => accumulator + currentValue;
-					
-					let countPrice = array.reduce(reducer)
-					$('.count-price').html(`Итого: ${countPrice}р.`)
-		
-					promocodes.find((el) => {
-	
-						let finalSum = Math.round(countPrice - (countPrice * el.discount / 100))
-		
-						if (el.name === $('.promocode_handler').val()) {
-							$('.count-price').html(`Итого: ${finalSum}р.`)
-						}
-					});
-				} else if(document.querySelectorAll('.price-change').length === 11) {
-					let countAttr0 = +document.querySelectorAll('.price-change').item(0).getAttribute('price-one')
-					let countAttr1 = +document.querySelectorAll('.price-change').item(1).getAttribute('price-one')
-					let countAttr2 = +document.querySelectorAll('.price-change').item(2).getAttribute('price-one')
-					let countAttr3 = +document.querySelectorAll('.price-change').item(3).getAttribute('price-one')
-					let countAttr4 = +document.querySelectorAll('.price-change').item(4).getAttribute('price-one')
-					let countAttr5 = +document.querySelectorAll('.price-change').item(5).getAttribute('price-one')
-					let countAttr6 = +document.querySelectorAll('.price-change').item(6).getAttribute('price-one')
-					let countAttr7 = +document.querySelectorAll('.price-change').item(7).getAttribute('price-one')
-					let countAttr8 = +document.querySelectorAll('.price-change').item(8).getAttribute('price-one')
-					let countAttr9 = +document.querySelectorAll('.price-change').item(9).getAttribute('price-one')
-					let countAttr10 = +document.querySelectorAll('.price-change').item(10).getAttribute('price-one')
-
-					let array = [countAttr0, countAttr1, countAttr2, countAttr3, countAttr4, countAttr5, countAttr6, countAttr7, countAttr8, countAttr9, countAttr10]
-					const reducer = (accumulator, currentValue) => accumulator + currentValue;
-					
-					let countPrice = array.reduce(reducer)
-					$('.count-price').html(`Итого: ${countPrice}р.`)
-		
-					promocodes.find((el) => {
-	
-						let finalSum = Math.round(countPrice - (countPrice * el.discount / 100))
-		
-						if (el.name === $('.promocode_handler').val()) {
-							$('.count-price').html(`Итого: ${finalSum}р.`)
-						}
-					});
+				if (el.name === $('.promocode_handler').val()) {
+					$('.count-price').html(`Итого: ${finalSum}р.`)
 				}
-
-			}
-			pizza.find(el => {
-				if (this.parentNode.classList.contains('col-count')) {
-
-					if (el.name === this.parentNode.parentNode.childNodes[1].childNodes[1].innerText) {
-
-						let price = this.parentNode.parentNode.childNodes[3]
-						let count = +this.parentNode.parentNode.childNodes[2].childNodes[0].value
-	
-						if (this.parentNode.parentNode.childNodes[1].childNodes[3].value == 0) {
-							price.innerHTML = `${el.small * count}р.`
-							price.setAttribute('price-one', `${el.small * count}`)
-						} else if (this.parentNode.parentNode.childNodes[1].childNodes[3].value == 1) {
-	
-							price.innerHTML = `${el.big * count}р.`
-							price.setAttribute('price-one', `${el.big * count}`)
-						}
-					} 
-				}
-				else {
-					if (el.name === this.parentNode.childNodes[1].innerText) {
-						// let sum = this.parentNode.childNodes[1]
-						let price = this.parentNode.parentNode.childNodes[3]
-						let count = +this.parentNode.parentNode.childNodes[2].childNodes[0].value
-	
-						if (this.value == 0) {
-							price.innerHTML = `${el.small * count}р.`
-							price.setAttribute('price-one', `${el.small * count}`)
-						} else if (this.value == 1) {
-	
-							price.innerHTML = `${el.big * count}р.`
-							price.setAttribute('price-one', `${el.big * count}`)
-						}
-						
-					}
-				}
-
-
-			})
-
-			checkSum()
+			});
 
 		}
 
-		
 
 		
 		inputsInit();
