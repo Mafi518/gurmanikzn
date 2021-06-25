@@ -990,3 +990,66 @@
 		document.querySelector('.caterogies').classList.toggle('categories--active')
 		console.log('asdsad')
 	})
+
+
+	function getParentPizza(parentPizza, parentNewBlock, selectClass) {
+		let pizza = document.querySelectorAll('.name').forEach(element => {
+			if (element.innerText.includes(`${parentPizza} (33 см)`)) {
+				let parent = element.parentNode.parentNode
+				parent.insertAdjacentHTML('afterend', `<div id="${parentNewBlock}"></div>`)
+				let newParent = document.querySelector(`#${parentNewBlock}`)
+				let select = `
+					<select class="${selectClass}">
+						<option value="1">25 см</option>
+						<option value="2">33 см</option>
+					</select>
+				`
+				parent.style.display = 'none'
+
+				console.log(newParent);
+				newParent.insertAdjacentHTML('afterend', select)
+				newParent.insertAdjacentElement('beforeend', parent)
+
+				
+				let selectNode = document.querySelector(`.${selectClass}`)
+
+				let selectNodeValue = document.querySelector(`.${selectClass}`).addEventListener('change', () => {
+					let selected = selectNode.value
+
+					if (selected == 1) {
+						newParent.lastElementChild.style.display = 'block'
+						parent.style.display = 'none'
+					} else if (selected == 2) {
+						newParent.lastElementChild.style.display = 'none'
+						parent.style.display = 'block'
+					}
+				})
+
+
+
+			} else {
+				console.log('else');
+			}
+		});
+	}
+
+
+	function getChildPizza(childPizza, childNewBlock) {
+		let smallPizza = document.querySelectorAll('.name').forEach(element => {
+			if (element.innerText.includes(`${childPizza} (25 см)`)) {
+				let child = element.parentNode.parentNode
+
+				let newParent = document.querySelector(`#${childNewBlock}`)
+				newParent.appendChild(child)
+				console.log('smallPizza');
+			}
+		})
+	}
+
+	getParentPizza('Пицца 4 Сезона', 'two', 'select__two')
+	getChildPizza('Пицца 4 Сезона', 'two', 'select__two')
+
+	getParentPizza('Пицца 4 Сыра', 'three', 'select__three')
+	getChildPizza('Пицца 4 Сыра', 'three', 'select__three')
+
+
