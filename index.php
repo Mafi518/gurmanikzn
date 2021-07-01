@@ -5558,7 +5558,6 @@ echo '</div>';
           <h2 class="contacts__title">Наши координаты</h2>
           <p class="contacts__subtitle">г. Казань, ул. Оренбургский тракт, 8В</p>
           <p class="contacts__subtitle">8 (937) 771 1838</p>
-          <p class="contacts__subtitle">Тут будет пример оплаты с картинкой</p>
           <p class="contacts__subtitle">
           Принимаем к оплате
 

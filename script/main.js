@@ -91,11 +91,38 @@
 	
 	var promocodes = [
 		{
-			name: 'test',
+			name: '700',
+			type: 'product',
 			discount: 20
 		},
 		{
-			name: 'test2',
+			name: '1301',
+			type: 'product',
+			discount: 10
+		},
+		{
+			name: '16',
+			type: 'percent',
+			discount: 10
+		},
+		{
+			name: 'WEB',
+			type: 'difference',
+			discount: 150
+		},
+		{
+			name: 'FREE200',
+			type: 'difference',
+			discount: 200
+		},
+		{
+			name: 'НОЧНОЙЖОР',
+			type: 'percent',
+			discount: 15
+		},
+		{
+			name: 'Sum21',
+			type: 'percent',
 			discount: 10
 		}
 	]
@@ -669,14 +696,6 @@
 					addons_text += '+ '+addon.d+'<br>';
 				});
 				$('<div class="col-addons">'+addons_text+'</div>').appendTo(colName);
-				if(ct.n.includes('Пицца')) {
-					$(`
-					<select class="cart__select">
-						<option value="1">33 см</option>
-						<option value="0">25 см</option>
-					</select>
-				`).appendTo(colName);
-				}
 				//
 				$('<div class="col-count"><input class="count" type="number" value="'+ct.c+'"></div>').appendTo(col);
 				$('<div class="col-price price-change" price-one="'+ct.p+'">'+(ct.p*ct.c)+'р.</div>').appendTo(col);
@@ -696,7 +715,7 @@
 		// Доставка
 		var pointsBox = $('<div class="cart-inp"></div>');
 			$('<label>Получение заказа:</label>').appendTo(pointsBox);
-			$('<label class="select-label"><input type="radio" name="affiliate" value="3" checked>Доставка по указанному адресу</label>').appendTo(pointsBox);
+			$('<label class="select-label delivery-check"><input type="radio" name="affiliate" value="3" >Доставка по указанному адресу</label>').appendTo(pointsBox);
 			$('<label class="select-label"><input type="radio" name="affiliate" value="2">Казань, Оренбургский тракт, 8в (самовывоз)</label>').appendTo(pointsBox);
 			// $('<label class="select-label"><input type="radio" name="affiliate" value="1">Казань, Оренбургский тракт, 8в (в заведении)</label>').appendTo(pointsBox);
 		pointsBox.appendTo(cart);
@@ -761,8 +780,8 @@
 		// Тип оплаты
 		var payType = $('<div class="cart-inp"></div>');
 			$('<label>Тип оплаты:</label>').appendTo(payType);
-			$('<label class="select-label"><input type="radio" name="pay" value="1" checked>Наличными</label>').appendTo(payType);
-			$('<label class="select-label"><input type="radio" name="pay" value="2">Безналичными</label>').appendTo(payType);
+			$('<label class="select-label"><input type="radio" class="cash" name="pay" value="1" checked>Наличными</label>').appendTo(payType);
+			$('<label class="select-label"><input type="radio" class="non-cash" name="pay" value="2">Безналичными</label>').appendTo(payType);
 		payType.appendTo(cart);
 	
 		// Промо-код
@@ -827,7 +846,9 @@
 				$('.adress-time').find('input').attr('required','true');
 			}
 		});
-	
+
+		
+		// PROMOCODES
 		$('.promocode_handler').change(checkCart)
 		$('.count').change(checkCart)
 
@@ -836,11 +857,24 @@
 			let countPrice = $('.count_summ').val()
 
 			promocodes.find((el) => {
-	
-				let finalSum = Math.round(countPrice - (countPrice * el.discount / 100))
 
-				if (el.name === $('.promocode_handler').val()) {
-					$('.count-price').html(`Итого: ${finalSum}р.`)
+				let date = new Date
+				let hours = date.getHours()
+				// let finalSumPercent = Math.round(countPrice - (countPrice * el.discount / 100))
+				let finalSumDifference = Math.round(countPrice - el.discount)
+				if (el.name === $('.promocode_handler').val() && el.type === 'percent') {
+					let delivery = document.querySelector('.delivery-check').innerText
+					console.log(delivery);
+					if (el.name === '16' && hours <= 24 || hours == 12 && delivery === 'Доставка по указанному адресу') {
+						let finalSumPercent = Math.round(countPrice - (countPrice * el.discount / 100))
+
+						$('.count-price').html(`Итого: ${finalSumPercent}р.`)
+					} else {
+						console.log('dasd');
+					}
+				} else if (el.name === $('.promocode_handler').val() && el.type === 'difference') {
+					$('.count-price').html(`Итого: ${finalSumDifference}р.`)
+				} else if (el.type === 'product') {
 				}
 			});
 
@@ -992,64 +1026,81 @@
 	})
 
 
-	function getParentPizza(parentPizza, parentNewBlock, selectClass) {
-		let pizza = document.querySelectorAll('.name').forEach(element => {
-			if (element.innerText.includes(`${parentPizza} (33 см)`)) {
-				let parent = element.parentNode.parentNode
-				parent.insertAdjacentHTML('afterend', `<div id="${parentNewBlock}"></div>`)
-				let newParent = document.querySelector(`#${parentNewBlock}`)
-				let select = `
-					<select class="${selectClass}">
-						<option value="1">25 см</option>
-						<option value="2">33 см</option>
-					</select>
-				`
-				parent.style.display = 'none'
+		let pizza = document.querySelectorAll('.item-card')
 
-				console.log(newParent);
-				newParent.insertAdjacentHTML('afterend', select)
-				newParent.insertAdjacentElement('beforeend', parent)
+		pizzaArray = Array.from(pizza)
 
-				
-				let selectNode = document.querySelector(`.${selectClass}`)
+		console.log(pizzaArray);
 
-				let selectNodeValue = document.querySelector(`.${selectClass}`).addEventListener('change', () => {
-					let selected = selectNode.value
+		let dublicate = pizzaArray.map(elem => {
+			let dublicateElem = elem.childNodes[1].childNodes[3]
 
-					if (selected == 1) {
-						newParent.lastElementChild.style.display = 'block'
-						parent.style.display = 'none'
-					} else if (selected == 2) {
-						newParent.lastElementChild.style.display = 'none'
-						parent.style.display = 'block'
-					}
-				})
-
-
-
-			} else {
-				console.log('else');
-			}
-		});
-	}
-
-
-	function getChildPizza(childPizza, childNewBlock) {
-		let smallPizza = document.querySelectorAll('.name').forEach(element => {
-			if (element.innerText.includes(`${childPizza} (25 см)`)) {
-				let child = element.parentNode.parentNode
-
-				let newParent = document.querySelector(`#${childNewBlock}`)
-				newParent.appendChild(child)
-				console.log('smallPizza');
+			if (dublicateElem.innerText === 'Пицца 4 Сыра') {
+				console.log(dublicateElem.parentNode);
+				return dublicateElem.parentNode
 			}
 		})
-	}
 
-	getParentPizza('Пицца 4 Сезона', 'two', 'select__two')
-	getChildPizza('Пицца 4 Сезона', 'two', 'select__two')
+		console.log(dublicate);
 
-	getParentPizza('Пицца 4 Сыра', 'three', 'select__three')
-	getChildPizza('Пицца 4 Сыра', 'three', 'select__three')
+	// function getParentPizza(parentPizza, parentNewBlock, selectClass) {
+	// 	let pizza = document.querySelectorAll('.name').forEach(element => {
+
+
+	// 		if (element.innerText.includes(`${parentPizza} (33 см)`)) {
+
+	// 			let parent = element.parentNode.parentNode
+	// 			parent.insertAdjacentHTML('afterend', `<div id="${parentNewBlock}"></div>`)
+	// 			let newParent = document.querySelector(`#${parentNewBlock}`)
+	// 			let select = `
+	// 				<select class="${selectClass} pizza__select--fix">
+	// 					<option value="1">25 см</option>
+	// 					<option value="2">33 см</option>
+	// 				</select>
+	// 			`
+	// 			parent.style.display = 'none'
+
+	// 			newParent.insertAdjacentHTML('afterend', select)
+	// 			newParent.insertAdjacentElement('beforeend', parent)
+
+				
+	// 			let selectNode = document.querySelector(`.${selectClass}`)
+
+	// 			let selectNodeValue = document.querySelector(`.${selectClass}`).addEventListener('change', () => {
+	// 				let selected = selectNode.value
+
+	// 				if (selected == 1) {
+	// 					newParent.lastElementChild.style.display = 'block'
+	// 					parent.style.display = 'none'
+	// 				} else if (selected == 2) {
+	// 					newParent.lastElementChild.style.display = 'none'
+	// 					parent.style.display = 'block'
+	// 				}
+	// 			})
+
+
+
+	// 		} else {
+	// 		}
+	// 	});
+	// }
+
+
+	// function getChildPizza(childPizza, childNewBlock) {
+	// 	let smallPizza = document.querySelectorAll('.name').forEach(element => {
+	// 		if (element.innerText.includes(`${childPizza} (25 см)`)) {
+	// 			let child = element.parentNode.parentNode
+
+	// 			let newParent = document.querySelector(`#${childNewBlock}`)
+	// 			newParent.appendChild(child)
+	// 		}
+	// 	})
+	// }
+
+	// getParentPizza('Пицца 4 Сезона', 'two', 'select__two')
+	// getChildPizza('Пицца 4 Сезона', 'two', 'select__two')
+
+	// getParentPizza('Пицца 4 Сыра', 'three', 'select__three')
+	// getChildPizza('Пицца 4 Сыра', 'three', 'select__three')
 
 

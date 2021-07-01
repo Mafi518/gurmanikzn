@@ -278,7 +278,7 @@ form .btn {
 [slider],
 .sliders,
 .block-wrapper {
-	height: 29em;
+	height: 33em;
 }
 
 @media screen and (max-width: 640px){
@@ -300,7 +300,7 @@ form .btn {
 	text-shadow: 0 0 0.4em rgb(0 0 0);
 }
 	.sliders-overflow {
-		height: 29em;
+		height: 33em;
 		overflow: hidden;
 	}
 	.sliders {
@@ -670,6 +670,16 @@ form .btn {
 	top: 0;
 	left: 0;
 	z-index: -1;
+}
+
+.pizza__select--fix {
+	text-transform: uppercase;
+	font-weight: bold;
+	background-color: transparent;
+	border: 1px solid #FF6807;
+	color: #FF6807;
+	outline: none;
+	cursor: pointer;
 }
 /* ============================================================= */
 /* === CHAPTERS */
