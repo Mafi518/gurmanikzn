@@ -2098,7 +2098,7 @@ if($query_categories = mysqli_query($link,"SELECT * FROM products WHERE price_sh
   }
 
   .cafe-navbar {
-    min-height: 124px;
+    min-height: 100px;
     font-size: 16px;
     background: #fcf8ef;
     border-bottom: 1px solid #e5e4dc
@@ -2165,8 +2165,8 @@ if($query_categories = mysqli_query($link,"SELECT * FROM products WHERE price_sh
   .cafe-navbar .brand .logo img {
     display: inline;
     object-fit: contain;
-    max-width: 250px;
-    height: 75px
+    max-width: 135px;
+    height: 100px
   }
 
   .cafe-navbar .brand .order-mobile {
@@ -3113,7 +3113,7 @@ if($query_categories = mysqli_query($link,"SELECT * FROM products WHERE price_sh
     list-style: none;
     font-size: 16px;
     font-weight: 400;
-    display: none;
+    display: flex;
     justify-content: center;
     flex-wrap: wrap;
   }
@@ -3122,63 +3122,79 @@ if($query_categories = mysqli_query($link,"SELECT * FROM products WHERE price_sh
     display: flex;
     align-items: center;
     justify-content: center;
-    max-width: 250px;
+    max-width: 350px;
     width: 100%;
     border-radius: 8px;
-    min-height: 200px;   
-    margin: 8px;
+    min-height: 200px;
+    margin: 15px;
     background-color: #fff;
     color: #000;
-    text-decoration: none
+    text-decoration: none;
+    background-repeat: no-repeat;
     background-size: cover;
-    background-image: url(index_files/1953295_1615559450.9081_original.jpg);
 
   }
+
   .cafe-body .left-panel .menu .elem li:nth-child(1) {
-
+    display: none;
   }
-  .cafe-body .left-panel .menu .elem li:nth-child(2) {
 
+  .cafe-body .left-panel .menu .elem li:nth-child(2) {
+    background-image: url(index_files/categories/pizza.jpg);
   }
   .cafe-body .left-panel .menu .elem li:nth-child(3) {
-
+    background-image: url(index_files/categories/seti.jpg);
   }
+
   .cafe-body .left-panel .menu .elem li:nth-child(4) {
-
+    background-image: url(index_files/categories/holodnie-rolli.jpg);
   }
+
   .cafe-body .left-panel .menu .elem li:nth-child(5) {
-
+    background-image: url(index_files/categories/jarenie-rolli.jpg);
   }
+
   .cafe-body .left-panel .menu .elem li:nth-child(6) {
-
+    background-image: url(index_files/categories/zapechenie-rolli.jpg);
   }
+
   .cafe-body .left-panel .menu .elem li:nth-child(7) {
-
+    background-image: url(index_files/categories/supi.jpg);
   }
+
   .cafe-body .left-panel .menu .elem li:nth-child(8) {
-
+    background-image: url(index_files/categories/salati.jpg);
   }
+
   .cafe-body .left-panel .menu .elem li:nth-child(9) {
-
+    background-image: url(index_files/categories/vok.jpg);
   }
+
   .cafe-body .left-panel .menu .elem li:nth-child(10) {
-
+    background-image: url(index_files/categories/zakuski.jpg);
   }
+
   .cafe-body .left-panel .menu .elem li:nth-child(11) {
-
+    background-image: url(index_files/categories/sushi.jpg);
   }
+
   .cafe-body .left-panel .menu .elem li:nth-child(12) {
-
+    background-image: url(index_files/categories/klassic-rolli.jpg);
   }
+
   .cafe-body .left-panel .menu .elem li:nth-child(13) {
-
+    background-image: url(index_files/categories/napitki.jpg);
   }
+
   .cafe-body .left-panel .menu .elem li:nth-child(14) {
-
+    background-image: url(index_files/categories/sousi.jpg);
   }
+
   .cafe-body .left-panel .menu .elem li:nth-child(15) {
-
+    background-image: url(index_files/categories/deserti.jpg);
+    background-position: center;
   }
+
   ..cafe-body .left-panel .menu .elem li a {
     width: 100%;
     height: 100%;
@@ -3323,7 +3339,8 @@ if($query_categories = mysqli_query($link,"SELECT * FROM products WHERE price_sh
 
   .cafe-body .item-card .name {
     font-size: 19px;
-    margin: 10px 0 0
+    margin: 10px 0 0;
+    /* display: inline-block; */
   }
 
   .cafe-body .item-card .description {
@@ -4529,16 +4546,27 @@ if($query_categories = mysqli_query($link,"SELECT * FROM products WHERE price_sh
   body .cafe-body .left-panel .menu .sub-elem li a {
     color: #FF6807;
   }
+
   body .cafe-body .left-panel .menu .elem li a {
     width: 100%;
     height: 100%;
     display: flex;
-    align-items: center;
+    align-items: flex-end;
     justify-content: center;
     border-radius: 8px;
     position: relative;
     z-index: 1;
+    padding: 13px 0px;
   }
+
+  .flex--row {
+		display: flex;
+		justify-content: space-between;
+		padding: 1px 0;
+		align-items: center;
+    height: 105px;
+	}
+
   body .cafe-body .left-panel .menu .elem li a:after {
     content: '';
     width: 70%;
@@ -4546,9 +4574,9 @@ if($query_categories = mysqli_query($link,"SELECT * FROM products WHERE price_sh
     background-color: #fff;
     position: absolute;
     border-radius: 8px;
-    top: 50%;
     left: 50%;
-    transform: translate(-50%, -50%);
+    bottom: 5px;
+    transform: translateX(-50%);
     z-index: -1;
   }
 
@@ -4591,9 +4619,8 @@ if($query_categories = mysqli_query($link,"SELECT * FROM products WHERE price_sh
     align-items: center;
   }
 
-  body .cafe-body .items-section .item-card .hide {
+  body .cafe-body .items-section .item-card .hide {}
 
-  }
   body .cafe-body .items-section .item-card .select__pizza {
     max-width: 130px;
     max-height: 100px !important;
@@ -5007,15 +5034,8 @@ if($query_categories = mysqli_query($link,"SELECT * FROM products WHERE price_sh
             <div class="row">
                 <div class="col-xs-12">
                     <div class="navigation"> -->
-    <!-- <h1 class="main-title">Gurmani</h1> -->
 
-    <!-- <ul class="pages-list">
-                        	<li><a href="/page/oplata-i-dostavka">Оплата и доставка</a></li>
-                        </ul> -->
-    <!-- <ul class="socials">
-                        	<li><a class="social" href="https://vk.com/gurmanikzn" target="_blank"><i class="icon-vk"></i></a></li>
-                        	<li><a class="social" href="https://www.instagram.com/gurmani.kzn" target="_blank"><i class="icon-instagram"></i></a></li>
-                        </ul> -->
+
 
     <!--                      <ul class="phone-box">
                         	<a href="tel:8 (937) 771 1838">8 (937) 771 1838</a>
@@ -5028,62 +5048,27 @@ if($query_categories = mysqli_query($link,"SELECT * FROM products WHERE price_sh
 
     <div class="header-wrapper">
       <div class="container">
-        <div class="row">
-          <div class="col-sm-3 col-xs-12">
+        <div class="flex--row">
+          <div class="logo--fix">
             <div class="brand">
-              <!-- <div class="burger-menu-wrapper">
-                            <div class="burger-menu">
-                                <span></span>
-                                <span></span>
-                                <span></span>
-                            </div>
-                        </div> -->
 
-              <a class="logo navbar-brand" href="/"><img src="./images/logo.mini.png" alt="Gurmani" title="Gurmani"></a>
-              <!-- <a class="navbar-brand" href="/"><img src="./index_files/LOGO-falag-1.png" alt="Gurmani" title="Gurmani"></a> -->
-              <!-- <div class="order-mobile">
-	                        <a href="/#" class="show-order">
-	                            <div class="cart-icon">
-	                            <svg width="21px" height="16px" viewBox="266 33 21 16" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
-	                                <g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd" transform="translate(267.000000, 34.000000)">
-	                                    <polyline stroke="#50BE36" stroke-width="2" stroke-linecap="round" points="0.255384657 0.681152344 4.60751012 0.681152344 7.18839518 8.87669155 15.1383466 8.87669155 18.2317844 2.37749372"></polyline>
-	                                    <path d="M8,2 L9,2 L9,3 L8,3 L8,2 Z M12,2 L13,2 L13,3 L12,3 L12,2 Z M11,4 L12,4 L12,5 L11,5 L11,4 Z M9,4 L10,4 L10,5 L9,5 L9,4 Z M10,6 L11,6 L11,7 L10,7 L10,6 Z M12,6 L13,6 L13,7 L12,7 L12,6 Z M10,2 L11,2 L11,3 L10,3 L10,2 Z M14,2 L15,2 L15,3 L14,3 L14,2 Z M13,4 L14,4 L14,5 L13,5 L13,4 Z" id="Combined-Shape" fill="#50BE36">
-	                                    </path>
-	                                    <ellipse fill="#50BE36" cx="8.33333333" cy="12.8157895" rx="2" ry="2.03007519"></ellipse>
-	                                    <ellipse fill="#50BE36" cx="13.6111111" cy="12.8157895" rx="2" ry="2.03007519"></ellipse>
-	                                </g>
-	                            </svg>
-	                            </div>
-	                            <span class="count">2</span>
-	                        </a>
-	                    </div>   -->
+              <a class="logo navbar-brand" href="/"><img src="./images/head-logo.png" alt="Gurmani" title="Gurmani"></a>
+
+            </div>
+          </div>
+          <div class=" header-right">
+            <div class="brand">
+
+            <div class="mob__social">
+              <a href="https://www.instagram.com/gurmani.kzn/"><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:svgjs="http://svgjs.com/svgjs" version="1.1" width="512" height="512" x="0" y="0" viewBox="0 0 24 24" style="enable-background:new 0 0 512 512" xml:space="preserve" class=""><g><path xmlns="http://www.w3.org/2000/svg" d="m12.004 5.838c-3.403 0-6.158 2.758-6.158 6.158 0 3.403 2.758 6.158 6.158 6.158 3.403 0 6.158-2.758 6.158-6.158 0-3.403-2.758-6.158-6.158-6.158zm0 10.155c-2.209 0-3.997-1.789-3.997-3.997s1.789-3.997 3.997-3.997 3.997 1.789 3.997 3.997c.001 2.208-1.788 3.997-3.997 3.997z" fill="#ff6807" data-original="#000000" style="" class=""/><path xmlns="http://www.w3.org/2000/svg" d="m16.948.076c-2.208-.103-7.677-.098-9.887 0-1.942.091-3.655.56-5.036 1.941-2.308 2.308-2.013 5.418-2.013 9.979 0 4.668-.26 7.706 2.013 9.979 2.317 2.316 5.472 2.013 9.979 2.013 4.624 0 6.22.003 7.855-.63 2.223-.863 3.901-2.85 4.065-6.419.104-2.209.098-7.677 0-9.887-.198-4.213-2.459-6.768-6.976-6.976zm3.495 20.372c-1.513 1.513-3.612 1.378-8.468 1.378-5 0-7.005.074-8.468-1.393-1.685-1.677-1.38-4.37-1.38-8.453 0-5.525-.567-9.504 4.978-9.788 1.274-.045 1.649-.06 4.856-.06l.045.03c5.329 0 9.51-.558 9.761 4.986.057 1.265.07 1.645.07 4.847-.001 4.942.093 6.959-1.394 8.453z" fill="#ff6807" data-original="#000000" style="" class=""/><circle xmlns="http://www.w3.org/2000/svg" cx="18.406" cy="5.595" r="1.439" fill="#ff6807" data-original="#000000" style="" class=""/></g></svg></a>
+              <a href="https://vk.com/gurmanikzn"><svg id="Bold" enable-background="new 0 0 24 24" height="512" viewBox="0 0 24 24" width="512" xmlns="http://www.w3.org/2000/svg"><path d="m19.915 13.028c-.388-.49-.277-.708 0-1.146.005-.005 3.208-4.431 3.538-5.932l.002-.001c.164-.547 0-.949-.793-.949h-2.624c-.668 0-.976.345-1.141.731 0 0-1.336 3.198-3.226 5.271-.61.599-.892.791-1.225.791-.164 0-.419-.192-.419-.739v-5.105c0-.656-.187-.949-.74-.949h-4.126c-.419 0-.668.306-.668.591 0 .622.945.765 1.043 2.515v3.797c0 .832-.151.985-.486.985-.892 0-3.057-3.211-4.34-6.886-.259-.713-.512-1.001-1.185-1.001h-2.625c-.749 0-.9.345-.9.731 0 .682.892 4.073 4.148 8.553 2.17 3.058 5.226 4.715 8.006 4.715 1.671 0 1.875-.368 1.875-1.001 0-2.922-.151-3.198.686-3.198.388 0 1.056.192 2.616 1.667 1.783 1.749 2.076 2.532 3.074 2.532h2.624c.748 0 1.127-.368.909-1.094-.499-1.527-3.871-4.668-4.023-4.878z"/></svg></a>
+            </div>
+            <p>Режим работы</p>
+            <span>10:00–22:00</span>
             </div>
           </div>
 
-          <!-- <div class="order">
-	                    <a href="/#" class="show-order">
-	                        <div class="cart-icon">
-	                        <svg width="21px" height="16px" viewBox="266 33 21 16" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
-	                            <g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd" transform="translate(267.000000, 34.000000)">
-	                                <polyline stroke="#50BE36" stroke-width="2" stroke-linecap="round" points="0.255384657 0.681152344 4.60751012 0.681152344 7.18839518 8.87669155 15.1383466 8.87669155 18.2317844 2.37749372"></polyline>
-	                                <path d="M8,2 L9,2 L9,3 L8,3 L8,2 Z M12,2 L13,2 L13,3 L12,3 L12,2 Z M11,4 L12,4 L12,5 L11,5 L11,4 Z M9,4 L10,4 L10,5 L9,5 L9,4 Z M10,6 L11,6 L11,7 L10,7 L10,6 Z M12,6 L13,6 L13,7 L12,7 L12,6 Z M10,2 L11,2 L11,3 L10,3 L10,2 Z M14,2 L15,2 L15,3 L14,3 L14,2 Z M13,4 L14,4 L14,5 L13,5 L13,4 Z" fill="#50BE36">
-	                                </path>
-	                                <ellipse fill="#50BE36" cx="8.33333333" cy="12.8157895" rx="2" ry="2.03007519"></ellipse>
-	                                <ellipse fill="#50BE36" cx="13.6111111" cy="12.8157895" rx="2" ry="2.03007519"></ellipse>
-	                            </g>
-	                        </svg>
-	                        </div>
 
-	                        <span class="count">2</span>
-	                        <span class="text">
-	                            Оформить заказ
-	                            <span class="order-sum">2 297,00 <i class="icon-rouble"></i></span>
-	                        </span>
-	                    </a>
-	                </div>     -->
-        </div>
-      </div>
-      <div class="row">
       </div>
     </div>
     </div>
@@ -5128,7 +5113,6 @@ if($query_categories = mysqli_query($link,"SELECT * FROM products WHERE price_sh
                                 <div class="col-xs-12">
                                     <div class="slide-inner"> 
                                         <h2 class="slide-header"></h2>
-                                        
                                     </div>
                                 </div>
                             </div>
@@ -5175,8 +5159,8 @@ echo '<div class="menu-mob hide">';
 		// </div>';
     echo '<div class="mob__footer">';
     echo '<div>
-      <a href="">условия доставки</a>
-      <a href="">о нас</a>
+      <a href="">Условия доставки</a>
+      <a href="">О нас</a>
       <div class="mob__social">
         <a href="https://www.instagram.com/gurmani.kzn/"><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:svgjs="http://svgjs.com/svgjs" version="1.1" width="512" height="512" x="0" y="0" viewBox="0 0 24 24" style="enable-background:new 0 0 512 512" xml:space="preserve" class=""><g><path xmlns="http://www.w3.org/2000/svg" d="m12.004 5.838c-3.403 0-6.158 2.758-6.158 6.158 0 3.403 2.758 6.158 6.158 6.158 3.403 0 6.158-2.758 6.158-6.158 0-3.403-2.758-6.158-6.158-6.158zm0 10.155c-2.209 0-3.997-1.789-3.997-3.997s1.789-3.997 3.997-3.997 3.997 1.789 3.997 3.997c.001 2.208-1.788 3.997-3.997 3.997z" fill="#ff6807" data-original="#000000" style="" class=""/><path xmlns="http://www.w3.org/2000/svg" d="m16.948.076c-2.208-.103-7.677-.098-9.887 0-1.942.091-3.655.56-5.036 1.941-2.308 2.308-2.013 5.418-2.013 9.979 0 4.668-.26 7.706 2.013 9.979 2.317 2.316 5.472 2.013 9.979 2.013 4.624 0 6.22.003 7.855-.63 2.223-.863 3.901-2.85 4.065-6.419.104-2.209.098-7.677 0-9.887-.198-4.213-2.459-6.768-6.976-6.976zm3.495 20.372c-1.513 1.513-3.612 1.378-8.468 1.378-5 0-7.005.074-8.468-1.393-1.685-1.677-1.38-4.37-1.38-8.453 0-5.525-.567-9.504 4.978-9.788 1.274-.045 1.649-.06 4.856-.06l.045.03c5.329 0 9.51-.558 9.761 4.986.057 1.265.07 1.645.07 4.847-.001 4.942.093 6.959-1.394 8.453z" fill="#ff6807" data-original="#000000" style="" class=""/><circle xmlns="http://www.w3.org/2000/svg" cx="18.406" cy="5.595" r="1.439" fill="#ff6807" data-original="#000000" style="" class=""/></g></svg></a>
         <a href="https://vk.com/gurmanikzn"><svg id="Bold" enable-background="new 0 0 24 24" height="512" viewBox="0 0 24 24" width="512" xmlns="http://www.w3.org/2000/svg"><path d="m19.915 13.028c-.388-.49-.277-.708 0-1.146.005-.005 3.208-4.431 3.538-5.932l.002-.001c.164-.547 0-.949-.793-.949h-2.624c-.668 0-.976.345-1.141.731 0 0-1.336 3.198-3.226 5.271-.61.599-.892.791-1.225.791-.164 0-.419-.192-.419-.739v-5.105c0-.656-.187-.949-.74-.949h-4.126c-.419 0-.668.306-.668.591 0 .622.945.765 1.043 2.515v3.797c0 .832-.151.985-.486.985-.892 0-3.057-3.211-4.34-6.886-.259-.713-.512-1.001-1.185-1.001h-2.625c-.749 0-.9.345-.9.731 0 .682.892 4.073 4.148 8.553 2.17 3.058 5.226 4.715 8.006 4.715 1.671 0 1.875-.368 1.875-1.001 0-2.922-.151-3.198.686-3.198.388 0 1.056.192 2.616 1.667 1.783 1.749 2.076 2.532 3.074 2.532h2.624c.748 0 1.127-.368.909-1.094-.499-1.527-3.871-4.668-4.023-4.878z"/></svg></a>
@@ -5205,57 +5189,18 @@ echo '<div class="block-slider">';
 
 	echo '<div class="sliders-overflow">';
 	echo '<div class="sliders">';
-		echo '<div slider="1" style="background-image: url(images/slider/4.PNG)">';
-			// echo '<div class="block-shadow"></div>';
-			echo '<div class="block-wrapper">';
-				// echo '<h1>Оплата при получении <br>любым удобным способом!</h1>';
-				// echo '<div class="transparent">.</div>';
-				// echo '<a href="/#category-5" class="button">Выбрать суши</a>';
-			echo '</div>';
-		echo '</div>';
+		echo '<button  class="slider-promocode" data-promocode="16pm" slider="1" style="background-image: url(images/slider/4.PNG)">';
 
-        echo '<div slider="2" style="background-image: url(images/slider/5.PNG)">';
-            // echo '<div class="block-shadow"></div>';
-            echo '<div class="block-wrapper">';
-                // echo '<h1>Оплата при получении <br>любым удобным способом!</h1>';
-                // echo '<div class="transparent">.</div>';
-                // echo '<a href="/#category-5" class="button">Выбрать суши</a>';
-            echo '</div>';
-        echo '</div>';
+		echo '</button>';
 
-        echo '<div slider="3" style="background-image: url(images/slider/6.PNG)">';
-            // echo '<div class="block-shadow"></div>';
-            echo '<div class="block-wrapper">';
-                // echo '<h1>Оплата при получении <br>любым удобным способом!</h1>';
-                // echo '<div class="transparent">.</div>';
-                // echo '<a href="/#category-5" class="button">Выбрать суши</a>';
-            echo '</div>';
-        echo '</div>';
+        echo '<button  class="slider-promocode" data-promocode="WEB" slider="2" style="background-image: url(images/slider/5.PNG)">';
 
-		// echo '<div slider="2" style="background-image: url(images/slider/product_1615735787_250_original.jpg)">';
-		// 	echo '<div class="block-shadow"></div>';
-		// 	echo '<div class="block-wrapper">';
-		// 		// echo '<h1>Оплата при получении <br>любым удобным способом!</h1>';
-		// 		echo '<h1>Суши</h1>';
-		// 		echo '<a href="/#category-5" class="button">Выбрать суши</a>';
-		// 	echo '</div>';
-		// echo '</div>';
+        echo '</button>';
 
-		// echo '<div slider="3"  style="background-image: url(images/slider/product_1615558895_177_original.jpg)">';
-		// 	echo '<div class="block-shadow"></div>';
-		// 	echo '<div class="block-wrapper">';
-		// 		echo '<h1>Пицца</h1>';
-		// 		echo '<a href="/#category-4" class="button">Выбрать пиццу</a>';
-		// 	echo '</div>';
-		// echo '</div>';
+        echo '<button class="slider-promocode" data-promocode="700" slider="3" style="background-image: url(images/slider/6.PNG)">';
 
-		// echo '<div slider="4"  style="background-image: url(images/slider/product_1615653238_239_original.jpg)">';
-		// 	echo '<div class="block-shadow"></div>';
-		// 	echo '<div class="block-wrapper">';
-		// 		echo '<h1>Том Ям</h1>';
-		// 		echo '<a href="/#category-9" class="button">Выбрать суп</a>';
-		// 	echo '</div>';
-		// echo '</div>';
+        echo '</button>';
+
 	echo '</div>'; // .sliders
 	echo '</div>'; // .sliders-overflow
 
@@ -5270,7 +5215,6 @@ echo '</div>';
       <div class="row">
         <div class="col-sm-12">
           <div class="left-panel">
-            <button class="categories__button">Категории</button>
             <div class="menu" itemscope="" itemtype="http://schema.org/SiteNavigationElement" role="navigation">
               <ul class="elem caterogies">
                 <?php
@@ -5279,20 +5223,6 @@ echo '</div>';
 						    		echo '<li class="cat-link-wrapper has-sub-cat"><a href="/?category='.$category_id.'" itemprop="url">'.$products_rows[0]['category_name'].'</a></li>';
 								}
                         	?>
-                <!-- <li class="cat-link-wrapper has-sub-cat"><a href="/piccy" itemprop="url">Пиццы</a></li>
-							<li class="cat-link-wrapper has-sub-cat"><a href="/holodnye-rolly" itemprop="url">Сеты</a></li>
-							<li class="cat-link-wrapper has-sub-cat"><a href="/zarenye-rolly" itemprop="url">Холодные роллы</a></li>
-							<li class="cat-link-wrapper has-sub-cat"><a href="/zapecnye-rolly" itemprop="url">Жареные роллы</a></li>
-							<li class="cat-link-wrapper has-sub-cat"><a href="/salaty" itemprop="url">Запечные роллы</a></li>
-							<li class="cat-link-wrapper has-sub-cat"><a href="/supy" itemprop="url">Супы</a></li>
-							<li class="cat-link-wrapper has-sub-cat"><a href="/goracie-zakuski" itemprop="url">Салаты</a></li>
-							<li class="cat-link-wrapper has-sub-cat"><a href="/deserty" itemprop="url">Лапша WOK</a></li>
-							<li class="cat-link-wrapper has-sub-cat"><a href="/sety" itemprop="url">Горячие Закуски</a></li>
-							<li class="cat-link-wrapper has-sub-cat"><a href="/susi" itemprop="url">Суши</a></li>
-							<li class="cat-link-wrapper has-sub-cat"><a href="/klassiceskie-rolly" itemprop="url">Классические роллы</a></li>
-							<li class="cat-link-wrapper has-sub-cat"><a href="/napitki" itemprop="url">Напитки</a></li>
-							<li class="cat-link-wrapper has-sub-cat"><a href="/dopolnitelno" itemprop="url">Соуса</a></li>
-							<li class="cat-link-wrapper has-sub-cat"><a href="/lapsa-wok" itemprop="url">Десерты</a></li> -->
               </ul>
             </div>
 
@@ -5559,42 +5489,92 @@ echo '</div>';
           <p class="contacts__subtitle">г. Казань, ул. Оренбургский тракт, 8В</p>
           <p class="contacts__subtitle">8 (937) 771 1838</p>
           <p class="contacts__subtitle">
-          Принимаем к оплате
+            Принимаем к оплате
 
-          <svg width="50" height="32" viewBox="0 0 45 27" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <path d="M45 13.5C45 20.9077 38.9769 27 31.5 27C24.0923 27 18 20.9077 18 13.5C18 6.09231 24.0231 0 31.4308 0C38.9769 0 45 6.09231 45 13.5Z" fill="#F9B50B"/>
-            <path d="M26.9308 13.5692C26.9308 12.6 26.7923 11.6308 26.6538 10.7308H18.3462C18.4154 10.2462 18.5538 9.83077 18.6923 9.27692H26.1C25.9615 8.79231 25.7538 8.30769 25.5462 7.82308H19.2462C19.4538 7.33846 19.7308 6.92308 20.0077 6.36923H24.7846C24.5077 5.88462 24.1615 5.4 23.7462 4.91538H21.1154C21.5308 4.43077 21.9462 4.01538 22.5 3.53077C20.1462 1.31538 16.9615 0 13.4308 0C6.09231 0.207692 0 6.09231 0 13.5C0 20.9077 6.02308 27 13.5 27C17.0308 27 20.1462 25.6154 22.5692 23.4692C23.0538 23.0538 23.4692 22.5692 23.9538 22.0154H21.1846C20.8385 21.6 20.4923 21.1154 20.2154 20.6308H24.9231C25.2 20.2154 25.4769 19.7308 25.6846 19.1769H19.3846C19.1769 18.7615 18.9692 18.2769 18.8308 17.7231H26.2385C26.6538 16.4769 26.9308 15.0923 26.9308 13.5692Z" fill="#C8191C"/>
-            <path d="M18.2769 16.9615L18.4846 15.7154C18.4154 15.7154 18.2769 15.7846 18.1385 15.7846C17.6538 15.7846 17.5846 15.5077 17.6538 15.3692L18.0692 12.8769H18.8308L19.0385 11.4923H18.3462L18.4846 10.6615H17.0308C17.0308 10.6615 16.2 15.3692 16.2 15.9231C16.2 16.7538 16.6846 17.1692 17.3769 17.1692C17.7923 17.1692 18.1385 17.0308 18.2769 16.9615Z" fill="white"/>
-            <path d="M18.7615 14.6769C18.7615 16.6846 20.1462 17.1692 21.2538 17.1692C22.2923 17.1692 22.7769 16.9615 22.7769 16.9615L23.0538 15.5769C23.0538 15.5769 22.2923 15.9231 21.5308 15.9231C19.9385 15.9231 20.2154 14.7462 20.2154 14.7462H23.1231C23.1231 14.7462 23.3308 13.8462 23.3308 13.4308C23.3308 12.5308 22.8462 11.3538 21.2538 11.3538C19.8692 11.2846 18.7615 12.8769 18.7615 14.6769ZM21.2538 12.6C22.0154 12.6 21.8769 13.5 21.8769 13.5692H20.2846C20.3538 13.5 20.4923 12.6 21.2538 12.6Z" fill="white"/>
-            <path d="M30.3231 16.9615L30.6 15.3692C30.6 15.3692 29.9077 15.7154 29.3538 15.7154C28.3846 15.7154 27.9 14.9538 27.9 14.0538C27.9 12.3231 28.7308 11.4231 29.7692 11.4231C30.4615 11.4231 31.0846 11.8385 31.0846 11.8385L31.2923 10.3154C31.2923 10.3154 30.4615 9.96922 29.6308 9.96922C27.9692 9.96922 26.3769 11.4231 26.3769 14.1231C26.3769 15.9231 27.2077 17.1 28.9385 17.1C29.5615 17.1692 30.3231 16.9615 30.3231 16.9615Z" fill="white"/>
-            <path d="M10.4538 11.2846C9.48461 11.2846 8.72308 11.5615 8.72308 11.5615L8.51538 12.8077C8.51538 12.8077 9.13846 12.5308 10.1077 12.5308C10.5923 12.5308 11.0077 12.6 11.0077 13.0154C11.0077 13.2923 10.9385 13.3615 10.9385 13.3615H10.3154C9.06923 13.3615 7.75385 13.8462 7.75385 15.5077C7.75385 16.8231 8.58461 17.1 9.13846 17.1C10.1077 17.1 10.5923 16.4769 10.6615 16.4769L10.5923 17.0308H11.7692L12.3231 13.0846C12.3231 11.3539 10.9385 11.2846 10.4538 11.2846ZM10.7308 14.4692C10.7308 14.6769 10.5923 15.8539 9.76154 15.8539C9.34615 15.8539 9.20769 15.5077 9.20769 15.3C9.20769 14.9539 9.41538 14.4692 10.5231 14.4692C10.6615 14.4692 10.7308 14.4692 10.7308 14.4692Z" fill="white"/>
-            <path d="M13.7077 17.1C14.0539 17.1 15.8539 17.1692 15.8539 15.2308C15.8539 13.4308 14.1231 13.7769 14.1231 13.0846C14.1231 12.7385 14.4 12.6 14.8846 12.6C15.0923 12.6 15.8539 12.6692 15.8539 12.6692L16.0615 11.3538C16.0615 11.3538 15.5769 11.2154 14.6769 11.2154C13.6385 11.2154 12.5308 11.6308 12.5308 13.0846C12.5308 14.7461 14.3308 14.6077 14.3308 15.2308C14.3308 15.6461 13.8462 15.7154 13.5 15.7154C12.8769 15.7154 12.1846 15.5077 12.1846 15.5077L11.9769 16.8231C12.1154 16.9615 12.5308 17.1 13.7077 17.1Z" fill="white"/>
-            <path d="M42.2308 10.1769L41.9538 12.1154C41.9538 12.1154 41.4 11.4231 40.5692 11.4231C39.2538 11.4231 38.1461 13.0154 38.1461 14.8846C38.1461 16.0615 38.7 17.2385 39.9462 17.2385C40.7769 17.2385 41.3308 16.6846 41.3308 16.6846L41.2615 17.1692H42.7154L43.7538 10.3154L42.2308 10.1769ZM41.5385 13.9154C41.5385 14.6769 41.1923 15.7154 40.3615 15.7154C39.8769 15.7154 39.6 15.3 39.6 14.5385C39.6 13.3615 40.0846 12.6692 40.7769 12.6692C41.2615 12.7385 41.5385 13.0846 41.5385 13.9154Z" fill="white"/>
-            <path d="M2.63077 17.0308L3.46154 11.9077L3.6 17.0308H4.56923L6.43846 11.9077L5.67692 17.0308H7.2L8.37692 10.1769H6.02308L4.56923 14.4L4.5 10.1769H2.42308L1.24615 17.0308H2.63077Z" fill="white"/>
-            <path d="M24.7846 17.0308C25.2 14.6769 25.2692 12.7385 26.3077 13.0846C26.4462 12.1846 26.6538 11.7692 26.7923 11.4231H26.5154C25.8923 11.4231 25.3385 12.2539 25.3385 12.2539L25.4769 11.4923H24.0923L23.1923 17.0308H24.7846V17.0308Z" fill="white"/>
-            <path d="M33.6461 11.2846C32.6769 11.2846 31.9154 11.5615 31.9154 11.5615L31.7077 12.8077C31.7077 12.8077 32.3308 12.5308 33.3 12.5308C33.7846 12.5308 34.2 12.6 34.2 13.0154C34.2 13.2923 34.1308 13.3615 34.1308 13.3615H33.5077C32.2615 13.3615 30.9462 13.8462 30.9462 15.5077C30.9462 16.8231 31.7769 17.1 32.3308 17.1C33.3 17.1 33.7846 16.4769 33.8538 16.4769L33.7846 17.0308H35.1L35.6538 13.0846C35.6538 11.3539 34.1308 11.2846 33.6461 11.2846ZM33.9923 14.4692C33.9923 14.6769 33.8538 15.8539 33.0231 15.8539C32.6077 15.8539 32.4692 15.5077 32.4692 15.3C32.4692 14.9539 32.6769 14.4692 33.7846 14.4692C33.9231 14.4692 33.9231 14.4692 33.9923 14.4692Z" fill="white"/>
-            <path d="M36.7615 17.0308C37.1769 14.6769 37.2462 12.7385 38.2846 13.0846C38.4231 12.1846 38.6308 11.7692 38.7692 11.4231H38.4923C37.8692 11.4231 37.3154 12.2539 37.3154 12.2539L37.4539 11.4923H36.0692L35.1692 17.0308H36.7615V17.0308Z" fill="white"/>
-          </svg>
+            <svg width="50" height="32" viewBox="0 0 45 27" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path
+                d="M45 13.5C45 20.9077 38.9769 27 31.5 27C24.0923 27 18 20.9077 18 13.5C18 6.09231 24.0231 0 31.4308 0C38.9769 0 45 6.09231 45 13.5Z"
+                fill="#F9B50B" />
+              <path
+                d="M26.9308 13.5692C26.9308 12.6 26.7923 11.6308 26.6538 10.7308H18.3462C18.4154 10.2462 18.5538 9.83077 18.6923 9.27692H26.1C25.9615 8.79231 25.7538 8.30769 25.5462 7.82308H19.2462C19.4538 7.33846 19.7308 6.92308 20.0077 6.36923H24.7846C24.5077 5.88462 24.1615 5.4 23.7462 4.91538H21.1154C21.5308 4.43077 21.9462 4.01538 22.5 3.53077C20.1462 1.31538 16.9615 0 13.4308 0C6.09231 0.207692 0 6.09231 0 13.5C0 20.9077 6.02308 27 13.5 27C17.0308 27 20.1462 25.6154 22.5692 23.4692C23.0538 23.0538 23.4692 22.5692 23.9538 22.0154H21.1846C20.8385 21.6 20.4923 21.1154 20.2154 20.6308H24.9231C25.2 20.2154 25.4769 19.7308 25.6846 19.1769H19.3846C19.1769 18.7615 18.9692 18.2769 18.8308 17.7231H26.2385C26.6538 16.4769 26.9308 15.0923 26.9308 13.5692Z"
+                fill="#C8191C" />
+              <path
+                d="M18.2769 16.9615L18.4846 15.7154C18.4154 15.7154 18.2769 15.7846 18.1385 15.7846C17.6538 15.7846 17.5846 15.5077 17.6538 15.3692L18.0692 12.8769H18.8308L19.0385 11.4923H18.3462L18.4846 10.6615H17.0308C17.0308 10.6615 16.2 15.3692 16.2 15.9231C16.2 16.7538 16.6846 17.1692 17.3769 17.1692C17.7923 17.1692 18.1385 17.0308 18.2769 16.9615Z"
+                fill="white" />
+              <path
+                d="M18.7615 14.6769C18.7615 16.6846 20.1462 17.1692 21.2538 17.1692C22.2923 17.1692 22.7769 16.9615 22.7769 16.9615L23.0538 15.5769C23.0538 15.5769 22.2923 15.9231 21.5308 15.9231C19.9385 15.9231 20.2154 14.7462 20.2154 14.7462H23.1231C23.1231 14.7462 23.3308 13.8462 23.3308 13.4308C23.3308 12.5308 22.8462 11.3538 21.2538 11.3538C19.8692 11.2846 18.7615 12.8769 18.7615 14.6769ZM21.2538 12.6C22.0154 12.6 21.8769 13.5 21.8769 13.5692H20.2846C20.3538 13.5 20.4923 12.6 21.2538 12.6Z"
+                fill="white" />
+              <path
+                d="M30.3231 16.9615L30.6 15.3692C30.6 15.3692 29.9077 15.7154 29.3538 15.7154C28.3846 15.7154 27.9 14.9538 27.9 14.0538C27.9 12.3231 28.7308 11.4231 29.7692 11.4231C30.4615 11.4231 31.0846 11.8385 31.0846 11.8385L31.2923 10.3154C31.2923 10.3154 30.4615 9.96922 29.6308 9.96922C27.9692 9.96922 26.3769 11.4231 26.3769 14.1231C26.3769 15.9231 27.2077 17.1 28.9385 17.1C29.5615 17.1692 30.3231 16.9615 30.3231 16.9615Z"
+                fill="white" />
+              <path
+                d="M10.4538 11.2846C9.48461 11.2846 8.72308 11.5615 8.72308 11.5615L8.51538 12.8077C8.51538 12.8077 9.13846 12.5308 10.1077 12.5308C10.5923 12.5308 11.0077 12.6 11.0077 13.0154C11.0077 13.2923 10.9385 13.3615 10.9385 13.3615H10.3154C9.06923 13.3615 7.75385 13.8462 7.75385 15.5077C7.75385 16.8231 8.58461 17.1 9.13846 17.1C10.1077 17.1 10.5923 16.4769 10.6615 16.4769L10.5923 17.0308H11.7692L12.3231 13.0846C12.3231 11.3539 10.9385 11.2846 10.4538 11.2846ZM10.7308 14.4692C10.7308 14.6769 10.5923 15.8539 9.76154 15.8539C9.34615 15.8539 9.20769 15.5077 9.20769 15.3C9.20769 14.9539 9.41538 14.4692 10.5231 14.4692C10.6615 14.4692 10.7308 14.4692 10.7308 14.4692Z"
+                fill="white" />
+              <path
+                d="M13.7077 17.1C14.0539 17.1 15.8539 17.1692 15.8539 15.2308C15.8539 13.4308 14.1231 13.7769 14.1231 13.0846C14.1231 12.7385 14.4 12.6 14.8846 12.6C15.0923 12.6 15.8539 12.6692 15.8539 12.6692L16.0615 11.3538C16.0615 11.3538 15.5769 11.2154 14.6769 11.2154C13.6385 11.2154 12.5308 11.6308 12.5308 13.0846C12.5308 14.7461 14.3308 14.6077 14.3308 15.2308C14.3308 15.6461 13.8462 15.7154 13.5 15.7154C12.8769 15.7154 12.1846 15.5077 12.1846 15.5077L11.9769 16.8231C12.1154 16.9615 12.5308 17.1 13.7077 17.1Z"
+                fill="white" />
+              <path
+                d="M42.2308 10.1769L41.9538 12.1154C41.9538 12.1154 41.4 11.4231 40.5692 11.4231C39.2538 11.4231 38.1461 13.0154 38.1461 14.8846C38.1461 16.0615 38.7 17.2385 39.9462 17.2385C40.7769 17.2385 41.3308 16.6846 41.3308 16.6846L41.2615 17.1692H42.7154L43.7538 10.3154L42.2308 10.1769ZM41.5385 13.9154C41.5385 14.6769 41.1923 15.7154 40.3615 15.7154C39.8769 15.7154 39.6 15.3 39.6 14.5385C39.6 13.3615 40.0846 12.6692 40.7769 12.6692C41.2615 12.7385 41.5385 13.0846 41.5385 13.9154Z"
+                fill="white" />
+              <path
+                d="M2.63077 17.0308L3.46154 11.9077L3.6 17.0308H4.56923L6.43846 11.9077L5.67692 17.0308H7.2L8.37692 10.1769H6.02308L4.56923 14.4L4.5 10.1769H2.42308L1.24615 17.0308H2.63077Z"
+                fill="white" />
+              <path
+                d="M24.7846 17.0308C25.2 14.6769 25.2692 12.7385 26.3077 13.0846C26.4462 12.1846 26.6538 11.7692 26.7923 11.4231H26.5154C25.8923 11.4231 25.3385 12.2539 25.3385 12.2539L25.4769 11.4923H24.0923L23.1923 17.0308H24.7846V17.0308Z"
+                fill="white" />
+              <path
+                d="M33.6461 11.2846C32.6769 11.2846 31.9154 11.5615 31.9154 11.5615L31.7077 12.8077C31.7077 12.8077 32.3308 12.5308 33.3 12.5308C33.7846 12.5308 34.2 12.6 34.2 13.0154C34.2 13.2923 34.1308 13.3615 34.1308 13.3615H33.5077C32.2615 13.3615 30.9462 13.8462 30.9462 15.5077C30.9462 16.8231 31.7769 17.1 32.3308 17.1C33.3 17.1 33.7846 16.4769 33.8538 16.4769L33.7846 17.0308H35.1L35.6538 13.0846C35.6538 11.3539 34.1308 11.2846 33.6461 11.2846ZM33.9923 14.4692C33.9923 14.6769 33.8538 15.8539 33.0231 15.8539C32.6077 15.8539 32.4692 15.5077 32.4692 15.3C32.4692 14.9539 32.6769 14.4692 33.7846 14.4692C33.9231 14.4692 33.9231 14.4692 33.9923 14.4692Z"
+                fill="white" />
+              <path
+                d="M36.7615 17.0308C37.1769 14.6769 37.2462 12.7385 38.2846 13.0846C38.4231 12.1846 38.6308 11.7692 38.7692 11.4231H38.4923C37.8692 11.4231 37.3154 12.2539 37.3154 12.2539L37.4539 11.4923H36.0692L35.1692 17.0308H36.7615V17.0308Z"
+                fill="white" />
+            </svg>
 
 
-          <svg width="69" height="21" viewBox="0 0 69 21" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <path d="M63.8 0.299999H59.5C58.2 0.299999 57.2 0.699999 56.6 2L48.4 20.7H54.2C54.2 20.7 55.2 18.2 55.4 17.6C56 17.6 61.7 17.6 62.5 17.6C62.7 18.3 63.2 20.6 63.2 20.6H68.4L63.8 0.299999ZM57 13.4C57.5 12.2 59.2 7.7 59.2 7.7C59.2 7.8 59.7 6.5 59.9 5.8L60.3 7.6C60.3 7.6 61.4 12.5 61.6 13.5H57V13.4Z" fill="#3362AB"/>
-            <path d="M48.8 14C48.8 18.2 45 21 39.1 21C36.6 21 34.2 20.5 32.9 19.9L33.7 15.3L34.4 15.6C36.2 16.4 37.4 16.7 39.6 16.7C41.2 16.7 42.9 16.1 42.9 14.7C42.9 13.8 42.2 13.2 40 12.2C37.9 11.2 35.1 9.6 35.1 6.7C35.1 2.7 39 0 44.5 0C46.6 0 48.4 0.4 49.5 0.9L48.7 5.3L48.3 4.9C47.3 4.5 46 4.1 44.1 4.1C42 4.2 41 5.1 41 5.9C41 6.8 42.2 7.5 44.1 8.4C47.3 9.9 48.8 11.6 48.8 14Z" fill="#3362AB"/>
-            <path d="M0 0.499999L0.1 0.0999985H8.7C9.9 0.0999985 10.8 0.499998 11.1 1.8L13 10.8C11.1 6 6.7 2.1 0 0.499999Z" fill="#F9B50B"/>
-            <path d="M25.1 0.300001L16.4 20.6H10.5L5.5 3.6C9.1 5.9 12.1 9.5 13.2 12L13.8 14.1L19.2 0.200001H25.1V0.300001Z" fill="#3362AB"/>
-            <path d="M27.4 0.200001H32.9L29.4 20.6H23.9L27.4 0.200001Z" fill="#3362AB"/>
-          </svg>
+            <svg width="69" height="21" viewBox="0 0 69 21" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path
+                d="M63.8 0.299999H59.5C58.2 0.299999 57.2 0.699999 56.6 2L48.4 20.7H54.2C54.2 20.7 55.2 18.2 55.4 17.6C56 17.6 61.7 17.6 62.5 17.6C62.7 18.3 63.2 20.6 63.2 20.6H68.4L63.8 0.299999ZM57 13.4C57.5 12.2 59.2 7.7 59.2 7.7C59.2 7.8 59.7 6.5 59.9 5.8L60.3 7.6C60.3 7.6 61.4 12.5 61.6 13.5H57V13.4Z"
+                fill="#3362AB" />
+              <path
+                d="M48.8 14C48.8 18.2 45 21 39.1 21C36.6 21 34.2 20.5 32.9 19.9L33.7 15.3L34.4 15.6C36.2 16.4 37.4 16.7 39.6 16.7C41.2 16.7 42.9 16.1 42.9 14.7C42.9 13.8 42.2 13.2 40 12.2C37.9 11.2 35.1 9.6 35.1 6.7C35.1 2.7 39 0 44.5 0C46.6 0 48.4 0.4 49.5 0.9L48.7 5.3L48.3 4.9C47.3 4.5 46 4.1 44.1 4.1C42 4.2 41 5.1 41 5.9C41 6.8 42.2 7.5 44.1 8.4C47.3 9.9 48.8 11.6 48.8 14Z"
+                fill="#3362AB" />
+              <path
+                d="M0 0.499999L0.1 0.0999985H8.7C9.9 0.0999985 10.8 0.499998 11.1 1.8L13 10.8C11.1 6 6.7 2.1 0 0.499999Z"
+                fill="#F9B50B" />
+              <path
+                d="M25.1 0.300001L16.4 20.6H10.5L5.5 3.6C9.1 5.9 12.1 9.5 13.2 12L13.8 14.1L19.2 0.200001H25.1V0.300001Z"
+                fill="#3362AB" />
+              <path d="M27.4 0.200001H32.9L29.4 20.6H23.9L27.4 0.200001Z" fill="#3362AB" />
+            </svg>
 
           </p>
           <div class="contacts__social">
-            <a target="_blank" href="https://www.instagram.com/gurmani.kzn/"><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:svgjs="http://svgjs.com/svgjs" version="1.1" width="512" height="512" x="0" y="0" viewBox="0 0 24 24" style="enable-background:new 0 0 512 512" xml:space="preserve" class=""><g><path xmlns="http://www.w3.org/2000/svg" d="m12.004 5.838c-3.403 0-6.158 2.758-6.158 6.158 0 3.403 2.758 6.158 6.158 6.158 3.403 0 6.158-2.758 6.158-6.158 0-3.403-2.758-6.158-6.158-6.158zm0 10.155c-2.209 0-3.997-1.789-3.997-3.997s1.789-3.997 3.997-3.997 3.997 1.789 3.997 3.997c.001 2.208-1.788 3.997-3.997 3.997z" fill="#ff6807" data-original="#000000" style="" class=""/><path xmlns="http://www.w3.org/2000/svg" d="m16.948.076c-2.208-.103-7.677-.098-9.887 0-1.942.091-3.655.56-5.036 1.941-2.308 2.308-2.013 5.418-2.013 9.979 0 4.668-.26 7.706 2.013 9.979 2.317 2.316 5.472 2.013 9.979 2.013 4.624 0 6.22.003 7.855-.63 2.223-.863 3.901-2.85 4.065-6.419.104-2.209.098-7.677 0-9.887-.198-4.213-2.459-6.768-6.976-6.976zm3.495 20.372c-1.513 1.513-3.612 1.378-8.468 1.378-5 0-7.005.074-8.468-1.393-1.685-1.677-1.38-4.37-1.38-8.453 0-5.525-.567-9.504 4.978-9.788 1.274-.045 1.649-.06 4.856-.06l.045.03c5.329 0 9.51-.558 9.761 4.986.057 1.265.07 1.645.07 4.847-.001 4.942.093 6.959-1.394 8.453z" fill="#ff6807" data-original="#000000" style="" class=""/><circle xmlns="http://www.w3.org/2000/svg" cx="18.406" cy="5.595" r="1.439" fill="#ff6807" data-original="#000000" style="" class=""/></g></svg></a>
-            <a target="_blank" href="https://vk.com/gurmanikzn"><svg id="Bold" enable-background="new 0 0 24 24" height="512" viewBox="0 0 24 24" width="512" xmlns="http://www.w3.org/2000/svg"><path d="m19.915 13.028c-.388-.49-.277-.708 0-1.146.005-.005 3.208-4.431 3.538-5.932l.002-.001c.164-.547 0-.949-.793-.949h-2.624c-.668 0-.976.345-1.141.731 0 0-1.336 3.198-3.226 5.271-.61.599-.892.791-1.225.791-.164 0-.419-.192-.419-.739v-5.105c0-.656-.187-.949-.74-.949h-4.126c-.419 0-.668.306-.668.591 0 .622.945.765 1.043 2.515v3.797c0 .832-.151.985-.486.985-.892 0-3.057-3.211-4.34-6.886-.259-.713-.512-1.001-1.185-1.001h-2.625c-.749 0-.9.345-.9.731 0 .682.892 4.073 4.148 8.553 2.17 3.058 5.226 4.715 8.006 4.715 1.671 0 1.875-.368 1.875-1.001 0-2.922-.151-3.198.686-3.198.388 0 1.056.192 2.616 1.667 1.783 1.749 2.076 2.532 3.074 2.532h2.624c.748 0 1.127-.368.909-1.094-.499-1.527-3.871-4.668-4.023-4.878z"/></svg></a>
+            <a target="_blank" href="https://www.instagram.com/gurmani.kzn/"><svg xmlns="http://www.w3.org/2000/svg"
+                xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:svgjs="http://svgjs.com/svgjs" version="1.1"
+                width="512" height="512" x="0" y="0" viewBox="0 0 24 24" style="enable-background:new 0 0 512 512"
+                xml:space="preserve" class="">
+                <g>
+                  <path xmlns="http://www.w3.org/2000/svg"
+                    d="m12.004 5.838c-3.403 0-6.158 2.758-6.158 6.158 0 3.403 2.758 6.158 6.158 6.158 3.403 0 6.158-2.758 6.158-6.158 0-3.403-2.758-6.158-6.158-6.158zm0 10.155c-2.209 0-3.997-1.789-3.997-3.997s1.789-3.997 3.997-3.997 3.997 1.789 3.997 3.997c.001 2.208-1.788 3.997-3.997 3.997z"
+                    fill="#ff6807" data-original="#000000" style="" class="" />
+                  <path xmlns="http://www.w3.org/2000/svg"
+                    d="m16.948.076c-2.208-.103-7.677-.098-9.887 0-1.942.091-3.655.56-5.036 1.941-2.308 2.308-2.013 5.418-2.013 9.979 0 4.668-.26 7.706 2.013 9.979 2.317 2.316 5.472 2.013 9.979 2.013 4.624 0 6.22.003 7.855-.63 2.223-.863 3.901-2.85 4.065-6.419.104-2.209.098-7.677 0-9.887-.198-4.213-2.459-6.768-6.976-6.976zm3.495 20.372c-1.513 1.513-3.612 1.378-8.468 1.378-5 0-7.005.074-8.468-1.393-1.685-1.677-1.38-4.37-1.38-8.453 0-5.525-.567-9.504 4.978-9.788 1.274-.045 1.649-.06 4.856-.06l.045.03c5.329 0 9.51-.558 9.761 4.986.057 1.265.07 1.645.07 4.847-.001 4.942.093 6.959-1.394 8.453z"
+                    fill="#ff6807" data-original="#000000" style="" class="" />
+                  <circle xmlns="http://www.w3.org/2000/svg" cx="18.406" cy="5.595" r="1.439" fill="#ff6807"
+                    data-original="#000000" style="" class="" />
+                </g>
+              </svg></a>
+            <a target="_blank" href="https://vk.com/gurmanikzn"><svg id="Bold" enable-background="new 0 0 24 24"
+                height="512" viewBox="0 0 24 24" width="512" xmlns="http://www.w3.org/2000/svg">
+                <path
+                  d="m19.915 13.028c-.388-.49-.277-.708 0-1.146.005-.005 3.208-4.431 3.538-5.932l.002-.001c.164-.547 0-.949-.793-.949h-2.624c-.668 0-.976.345-1.141.731 0 0-1.336 3.198-3.226 5.271-.61.599-.892.791-1.225.791-.164 0-.419-.192-.419-.739v-5.105c0-.656-.187-.949-.74-.949h-4.126c-.419 0-.668.306-.668.591 0 .622.945.765 1.043 2.515v3.797c0 .832-.151.985-.486.985-.892 0-3.057-3.211-4.34-6.886-.259-.713-.512-1.001-1.185-1.001h-2.625c-.749 0-.9.345-.9.731 0 .682.892 4.073 4.148 8.553 2.17 3.058 5.226 4.715 8.006 4.715 1.671 0 1.875-.368 1.875-1.001 0-2.922-.151-3.198.686-3.198.388 0 1.056.192 2.616 1.667 1.783 1.749 2.076 2.532 3.074 2.532h2.624c.748 0 1.127-.368.909-1.094-.499-1.527-3.871-4.668-4.023-4.878z" />
+              </svg></a>
           </div>
         </div>
         <div class="contacts__map">
           <iframe class="yandex__map"
             src="https://yandex.ru/map-widget/v1/?um=constructor%3A461e470d942e41b0e289aaa3d688ddd1b8e5284f5d19b64c6c51ee6ee0b6cc60&amp;source=constructor"
-              frameborder="0"></iframe>
+            frameborder="0"></iframe>
         </div>
       </div>
     </div>
@@ -5605,6 +5585,16 @@ echo '</div>';
     </div>
 </div> -->
 
+    <div class="time-warning">
+      <img src="images/head-logo.png" alt="">
+      <p>К сожалению мы уже закрыты
+        Работаем ежедневно с 10.00 до 22.00
+        Вы можете сделать предзаказ на завтра</p>
+      <span>с 10:00 до 22:00</span>
+      <button class="close__button">Сделать предзаказ</button>
+    </div>
+    <div class="time-overlay">
+    </div>
 
     <footer class="cafe-footer">
       <div class="container">
@@ -5629,10 +5619,10 @@ echo '</div>';
             <p class="copyright">2021 GURMANI ИП КОРНИЛОВ А. А. ИНН: 503614560405 ОГРН: 321169000049507</p>
           </div>
           <div class="footer__info">
-                <a href="">меню, </a>
-                <a href="">доставка, </a>
-                <a href="">политика конфедициальности</a>
-                <a href="">условия оплаты</a>
+            <a href="">Меню, </a>
+            <a href="delivery.php">Доставка, </a>
+            <a href="privacy-policy.php">Политика конфедициальности</a>
+            <a href="">Условия оплаты</a>
           </div>
         </div>
       </div>
